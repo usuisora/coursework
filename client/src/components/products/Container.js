@@ -1,16 +1,14 @@
 import React,{Fragment} from 'react'
 import Search from './Search'
-import { withStyles,createStyle } from '@material-ui/core/styles';
-import {Typography} from '@material-ui/core';
+import SaleList from './table/SaleList'
 
-
-
-function Container({classes}) {
+function Container() {
   return (
 <Fragment>
     <Search/>
+    <SaleList/>
 </Fragment>
   )
 }
 
-export default (Container)
+export default Container
