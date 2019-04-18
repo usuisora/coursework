@@ -1,29 +1,21 @@
 import {gql} from 'apollo-boost'
 
-
-export const  displayProductsQuery =  gql`
-{
-  allProducts {
+export const  displayProductsQuery =  gql`{
+  allTotalexistproducts {
   edges {
     node {
+      category
+      mark
+      model
       id
       model
       color
-      category
-      billitemsByProductid{
-        edges {
-  			  node {
-           price
-           quantity
-          }
+      avalCount
+      price
+      
         }
       }
-      volume
-      description
-    }
   }
-  }
-
-  
 }
+
 `
