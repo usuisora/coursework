@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import {graphql} from 'react-apollo'
-import {displayProductsQuery} from '../../../queries'
+import {graphql,compose} from 'react-apollo'
+import {displayProductsQuery,displayProductsByCategory } from '../../../queries'
 import {Typography, Button }from '@material-ui/core';
 import {theme } from '../../../theme'
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -37,10 +37,11 @@ export const Row = ({id,node})=>{
 
               <TableRow >
                    <TableCell align="right" name = 'category'>{node.category}</TableCell>
-                    <TableCell align="right"name = 'model'>{node.model}</TableCell>
-                    <TableCell align="right" name = 'color'>{node.color}</TableCell>
-                    <TableCell align="right" name = 'price'>{node.billitemsByProductid.edges.price}</TableCell>
-                    <TableCell align="right" name = 'quantity'>{node.billitemsByProductid.edges.quantity}</TableCell>
+                   <TableCell align="right"name = 'model'>{node.mark}</TableCell>
+                   <TableCell align="right"name = 'model'>{node.model}</TableCell>
+                   <TableCell align="right" name = 'color'>{node.color}</TableCell>
+                   <TableCell align="right"name = 'model'>{node.avalCount}</TableCell>
+                   <TableCell align="right"name = 'model'>${node.price}</TableCell>
                     <TableCell align="right" name = 'info' onClick = {()=>{handleAddToCheck()}}>
                         <Button  variant="outlined"  color="primary" >Sale</Button>
                     </TableCell>
@@ -59,29 +60,36 @@ function ProdBody(props) {
         console.log(props)
         if(prod.loading){
                  return (
-                    <Typography variant= 'subtitle' style={{ padding:20, color: '#666'}}>Loading...</Typography>
+                    <Typography  style={{ padding:20, color: '#666'}}>Loading...</Typography>
                  )
         }
         else{
-          return prod.allProducts.edges.map(({node})=>(
-               <TableBody>
+          return prod.allTotalexistproducts.edges.map(({node})=>(
                  <React.Fragment  key={node.id} >
                     <Row id = {node.id} node ={node}/>
                  </React.Fragment>
-              </TableBody>
 
                 
           ))
+
         }
     }
 
     showProducts()
     var rows = showProducts()
   return (
-        <React.Fragment>
-          {rows}
-        </React.Fragment>
+    <TableBody>  {rows}</TableBody>
+        
   )
 }
 
-export default graphql(displayProductsQuery,{name:'displayProductsQuery'})(ProdBody)
+export default compose(graphql(displayProductsQuery,{name:'displayProductsQuery'}),
+graphql(displayProductsByCategory,{name:'displayProductsByCategory'},{
+  options:(props)=>{
+      return{
+          variables:{
+              cat: "WASHER"
+          }
+      }
+  }
+}))(ProdBody)

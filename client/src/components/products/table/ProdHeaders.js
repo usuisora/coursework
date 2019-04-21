@@ -6,11 +6,12 @@ function ProdHeaders() {
   return (
    <TableHead>
           <TableRow>
-            <TableCell align="right">Category</TableCell>
-            <TableCell align="right">Model</TableCell>
-            <TableCell align="right">Color</TableCell>
-            <TableCell align="right">Quantity (itm)</TableCell>
-            <TableCell align="right">Price (uah)</TableCell>
+        <TableCell align="right">CATEGORY</TableCell>
+            <TableCell align="right">MARK</TableCell>
+            <TableCell align="right">MODEL</TableCell>
+            <TableCell align="right">COLOR</TableCell>
+            <TableCell align="right">COUNT</TableCell>
+            <TableCell align="right">PRICE (uah)</TableCell>
           </TableRow>
         </TableHead>
   )

@@ -19,3 +19,24 @@ export const  displayProductsQuery =  gql`{
 }
 
 `
+export const  displayProductsByCategory =  gql`
+{
+
+    allTotalexistproducts(condition:{category: WASHER }) {
+      edges {
+        node {
+          category
+          mark
+          model
+          id
+          model
+          color
+          avalCount
+          price
+          
+            }
+          }
+      }
+    }
+
+`

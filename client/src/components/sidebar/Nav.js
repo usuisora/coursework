@@ -7,19 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import classNames from 'classnames'
 
-const drawerWidth = 240;
 
-function Nav({classes,open,setOpen}) {
-  return (
-    <React.Fragment>
-    <AppBar
-          position="fixed"
-          className= {classNames( classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar disableGutters={!open}>
-            <IconButton
+const Burger = ({classes,setOpen,open}) =>{
+  return(
+     <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={()=>setOpen(true)}
@@ -27,6 +18,19 @@ function Nav({classes,open,setOpen}) {
             >
               <MenuIcon />
             </IconButton>
+  )
+}
+
+function Nav({classes,open,setOpen}) {
+  return (
+    <AppBar
+          position="fixed"
+          className= {classNames( classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar disableGutters={!open}>
+           <Burger classes={classes}  setOpen = {setOpen} open = {open}/>
             <Typography variant="h6" color="inherit" noWrap style = {{display: 'flex', flex : 1, fontWeight : 500}} >
                Basical Client App
             </Typography>
@@ -35,7 +39,6 @@ function Nav({classes,open,setOpen}) {
             </Button>
           </Toolbar>
         </AppBar>
-    </React.Fragment>
   )
 }
 
