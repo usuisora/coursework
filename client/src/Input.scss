@@ -1,0 +1,50 @@
+$font: "Nunito";
+$numfont: "Ubuntu";
+
+$back : #f7f7f7;
+$white : #ffffff;
+$primary: #333333;
+$secondary: #347722;
+
+body{
+    font-family: $font;
+    color:$primary;
+    background-color: $back
+}
+.App{
+    display: flex;
+
+    nav{
+        flex:1 ;
+
+    }
+    .info{
+        flex:2 ;
+
+    }
+    div{
+    }
+    .check{
+        flex:3 ;
+    }
+    .products{
+        flex:3 ;
+
+        ul{
+            padding: 0;
+            margin: 0;
+            li{
+                display: inline-block;
+                list-style-type: none;
+                border: 2px $primary solid;
+                border-radius: 4px;
+                padding: 2px 4px;
+                margin: 2px  4px;
+            }     
+         }
+    }
+ 
+
+    
+    
+}

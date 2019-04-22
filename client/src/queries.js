@@ -1,17 +1,18 @@
 import {gql} from 'apollo-boost'
 
 export const  displayProductsQuery =  gql`{
-  allTotalexistproducts {
+  allProductsviews {
   edges {
     node {
       category
-      mark
-      model
-      id
-      model
-      color
-      avalCount
-      price
+          mark
+          model
+          prodId
+          model
+          color
+          avalCount
+          price
+          shopId
       
         }
       }
@@ -19,24 +20,67 @@ export const  displayProductsQuery =  gql`{
 }
 
 `
-export const  displayProductsByCategory =  gql`
-{
-
-    allTotalexistproducts(condition:{category: WASHER }) {
+export const  displayWashers =  gql`
+query($shop: Int!){
+  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:WASHER}}){
       edges {
         node {
           category
           mark
-          model
-          id
+          prodId
           model
           color
           avalCount
           price
-          
-            }
-          }
+          shopId
+        }
       }
     }
+  }
 
 `
+
+export const  displayFridges =  gql`query($shop: Int!){
+  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:FRIDGE}}){
+      edges {
+        node {
+          category
+          mark
+          prodId
+          model
+          color
+          avalCount
+          price
+          shopId
+        }
+      }
+    }
+  }
+`
+
+export const  displayStoves =  gql`query($shop: Int!){
+  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:STOVE}}){
+      edges {
+        node {
+          category
+          mark
+          prodId
+          model
+          color
+          avalCount
+          price
+          shopId
+        }
+      }
+    }
+  }
+`
+export const  getShopIDsQuery =  gql`{
+  allShops {
+    edges {
+      node {
+        id
+      }
+    }
+  } 
+ }`

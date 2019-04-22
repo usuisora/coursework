@@ -17,6 +17,7 @@
     "graphql": "^14.2.0",
     "pg": "^7.10.0",
     "postgraphile": "^4.3.3",
-    "postgraphile-apollo-server": "^0.1.0"
+    "postgraphile-apollo-server": "^0.1.0",
+    "postgraphile-plugin-connection-filter": "^1.0.1"
   }
 }
