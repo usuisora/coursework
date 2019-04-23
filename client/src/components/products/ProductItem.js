@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import {MyContext} from '../../Provider'
+
 function ProductItem({node}) {
   return (
       <MyContext.Consumer>

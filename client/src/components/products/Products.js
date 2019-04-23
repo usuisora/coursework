@@ -21,7 +21,7 @@ const show = (query)=>{
 }
 function Products({displayStoves,displayFridges,displayWashers,shop}) {
   
-  
+  console.log('shop # ',shop)
   return (
     <div className = 'products'>
       <h4>Products</h4>

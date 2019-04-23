@@ -1,22 +1,49 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {graphql} from 'react-apollo'
+import {getShopQuery} from '../../queries'
+import {MyContext} from '../../Provider'
 
-function Nav() {
+
+const show = (query)=>{
+  console.log(query)
+  if(query.loading){
+    return (<option value="-" disabled>-</option>)
+  } 
+  else{
+    return (   
+      <MyContext.Consumer>
+        {
+          ({setShop,shop})=>(
+            <select name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{setShop(value)}} >
+                { query.allShops.edges.map(({node})=>{
+                    return (<option  key = {node.id} value= {node.id}>{node.id}</option>)
+                  })
+                }
+           </select>
+          )
+        }
+      </MyContext.Consumer>
+   
+    )
+   
+  }
+      
+}
+
+function Nav({getShopQuery}) {
   return (
     <nav>
         <h4>Shop    </h4>
-        <select name="shop" id="selectshop">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-        
+            {show(getShopQuery)}
+
+            
         <div className="routes">
-        <Link to="/">Products</Link>
-        <Link to="/Check">Check</Link>
+          <Link to="/">Products</Link>
+          <Link to="/Check">Check</Link>
         </div>
     </nav>
   )
 }
 
-export default Nav
+export default graphql(getShopQuery,{name:'getShopQuery'})(Nav)

@@ -75,12 +75,17 @@ export const  displayStoves =  gql`query($shop: Int!){
     }
   }
 `
-export const  getShopIDsQuery =  gql`{
-  allShops {
-    edges {
-      node {
-        id
-      }
-    }
-  } 
- }`
+export const  getShopQuery =  gql`
+ {
+ allShops {
+   edges {
+     node {
+       id
+      street
+      streetNumber
+      mngrName
+      mngrLastname
+     }
+   }
+ } }
+`
