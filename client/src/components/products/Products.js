@@ -2,13 +2,20 @@ import React from 'react'
 import {graphql, compose} from 'react-apollo'
 import {displayStoves,displayFridges,displayWashers} from '../../queries'
 import ProductItem from './ProductItem'
-const show = (query)=>{
+const show = (query,shop)=>{
+
+  
   if(query.loading){
     return (<p>Loading...</p>)
   } 
+  else if(query.error){
+    console.log(query.error);
+    query.refetch({query:query,variables:{shop:shop}})
+  }
   else{
     return (
       <ul>
+
         { query.allProductsviews.edges.map(({node},index)=>{
              return (<ProductItem  key = {index} node = {node}/>)
           })
@@ -27,15 +34,15 @@ function Products({displayStoves,displayFridges,displayWashers,shop}) {
       <h4>Products</h4>
       <div className = 'category'>
           <h3>Fridges</h3>
-           { show(displayFridges)}
+           { show(displayFridges,shop)}
       </div>
       <div className = 'category'>
           <h3>Stoves</h3>
-          { show(displayStoves)}
+          { show(displayStoves,shop)}
       </div>
       <div className = 'category'>
           <h3>Washers</h3>
-          { show(displayWashers)}
+          { show(displayWashers,shop)}
       </div>
     </div>
   )

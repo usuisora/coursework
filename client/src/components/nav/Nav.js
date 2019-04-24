@@ -6,7 +6,7 @@ import {MyContext} from '../../Provider'
 
 
 const show = (query)=>{
-  console.log(query)
+  console.log('show query ' ,query)
   if(query.loading){
     return (<option value="-" disabled>-</option>)
   } 
@@ -15,9 +15,10 @@ const show = (query)=>{
       <MyContext.Consumer>
         {
           ({setShop,shop})=>(
-            <select name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{setShop(value)}} >
+            <select name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{setShop(parseInt(value))}} >
                 { query.allShops.edges.map(({node})=>{
-                    return (<option  key = {node.id} value= {node.id}>{node.id}</option>)
+                    return (<option  key = {node.id} value= {node.id} 
+                   >{node.id}</option>)
                   })
                 }
            </select>
@@ -26,24 +27,23 @@ const show = (query)=>{
       </MyContext.Consumer>
    
     )
-   
   }
-      
 }
 
 function Nav({getShopQuery}) {
+  console.log(graphql)
   return (
     <nav>
         <h4>Shop    </h4>
             {show(getShopQuery)}
-
-            
         <div className="routes">
-          <Link to="/">Products</Link>
-          <Link to="/Check">Check</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/check">Check</Link>
         </div>
     </nav>
   )
 }
 
-export default graphql(getShopQuery,{name:'getShopQuery'})(Nav)
+export default graphql(getShopQuery,{name:'getShopQuery',options:{
+  notifyOnNetworkStatusChange: true
+}})(Nav)

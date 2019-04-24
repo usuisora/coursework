@@ -21,7 +21,7 @@ export const  displayProductsQuery =  gql`{
 
 `
 export const  displayWashers =  gql`
-query($shop: Int!){
+query displayWashers($shop: Int!){
   allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:WASHER}}){
       edges {
         node {
@@ -40,7 +40,7 @@ query($shop: Int!){
 
 `
 
-export const  displayFridges =  gql`query($shop: Int!){
+export const  displayFridges =  gql`query displayFridges($shop: Int!){
   allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:FRIDGE}}){
       edges {
         node {
@@ -58,7 +58,7 @@ export const  displayFridges =  gql`query($shop: Int!){
   }
 `
 
-export const  displayStoves =  gql`query($shop: Int!){
+export const  displayStoves =  gql`query displayStoves($shop: Int!){
   allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:STOVE}}){
       edges {
         node {

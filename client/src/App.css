@@ -13,7 +13,7 @@ body {
 .App .info {
   flex: 2;
 }
-.App .products {
+.App .check, .App .products {
   flex: 3;
 }
 .App .products ul {
