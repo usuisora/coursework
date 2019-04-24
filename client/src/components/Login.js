@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-function Login({shop,setShop,history}) {
+function Login({shop,updateShop,history}) {
   
     const handleSubmit =(e)=>{
             e.preventDefault()
@@ -11,7 +11,7 @@ function Login({shop,setShop,history}) {
   return (
     <div>
 <form onSubmit={handleSubmit}>
-    <input type="number" placeholder={shop} onChange={(e)=>{setShop(e.target.value)}}/>
+    <input type="number" placeholder={shop} onChange={(e)=>{updateShop(e.target.value)}}/>
     <button>Submit</button>
 </form>
     </div>

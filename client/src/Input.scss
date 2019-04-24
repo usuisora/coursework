@@ -4,8 +4,8 @@ $numfont: "Ubuntu";
 $back : #f7f7f7;
 $white : #ffffff;
 $primary: #333333;
-$secondary: #347722;
-
+$secondary: rgb(163, 163, 163);
+$active: #a6e2dd;
 body{
     font-family: $font;
     color:$primary;
@@ -13,7 +13,7 @@ body{
 }
 .App{
     display: flex;
-
+}
     nav{
         flex:1 ;
     }
@@ -30,6 +30,7 @@ body{
         ul{
             padding: 0;
             margin: 0;
+            
             li{
                 display: inline-block;
                 list-style-type: none;
@@ -37,11 +38,18 @@ body{
                 border-radius: 4px;
                 padding: 2px 4px;
                 margin: 2px  4px;
-            }     
+                    box-shadow: $secondary 1px 2px 2px;
+
+            }    
          }
     }
- 
 
     
     
+
+
+.active{
+    border: none;
+    background-color: $primary;
+    color:$white;
 }

@@ -7,26 +7,37 @@ body {
 .App {
   display: flex;
 }
-.App nav {
+
+nav {
   flex: 1;
 }
-.App .info {
+
+.info {
   flex: 2;
 }
-.App .check, .App .products {
+
+.check, .products {
   flex: 3;
 }
-.App .products ul {
+
+.products ul {
   padding: 0;
   margin: 0;
 }
-.App .products ul li {
+.products ul li {
   display: inline-block;
   list-style-type: none;
   border: 2px #333333 solid;
   border-radius: 4px;
   padding: 2px 4px;
   margin: 2px 4px;
+  box-shadow: #a3a3a3 1px 2px 2px;
+}
+
+.active {
+  border: none;
+  background-color: #333333;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -23,6 +23,7 @@ function Info() {
               <input type='number' placeholder = 'remove...'/>
               <button>Remove</button>
           </form>
+      
     </div>
       )}
     </MyContext.Consumer>

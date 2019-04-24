@@ -9,24 +9,24 @@ import Info from './components/products/Info';
 import Login from './components/Login'
 
 
-const DynRoutes = ({setShop, shop}) =>
+const DynRoutes = ({updateShop, shop}) =>
 <Switch>
     <Route path="/products" exact render={(props) => <Products {...props} shop={shop} />} />
     <Route path="/check" exact component={Check} />
-    <Route login="/" exact render={(props) => <Login {...props} shop={shop} setShop={setShop}/>} />
+    <Route login="/" exact render={(props) => <Login {...props} shop={shop} updateShop={updateShop}/>} />
 </Switch>
-const Routes = ({setShop,shop}) =>
+const Routes = ({updateShop,shop}) =>
 <React.Fragment>
-      <Nav setShop ={setShop} />
-      <DynRoutes shop={shop} setShop={setShop}/>
+      <Nav />
+      <DynRoutes shop={shop} updateShop={updateShop}/>
       <Info/>
 </React.Fragment>
 
 
 const AppConsumer = () =>   <MyContext>
 {
-  ({shop,setShop})=>(
-     <Routes shop = {shop} setShop={setShop}/>
+  ({shop,updateShop})=>(
+     <Routes shop = {shop} updateShop={updateShop}/>
   )
 }
 </MyContext>
