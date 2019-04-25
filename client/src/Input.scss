@@ -16,6 +16,12 @@ body{
 }
     nav{
         flex:1 ;
+
+        .routes{
+            display: flex;
+            align-content: center;
+            flex-direction: column
+        }
     }
     .info{
         flex:2 ;
