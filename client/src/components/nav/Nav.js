@@ -33,7 +33,6 @@ const SelectShop = ({query})=>{
 }
 
 function Nav({getShopQuery}) {
-  console.log(graphql)
   return (
     <nav>
             <SelectShop query = {getShopQuery}/>

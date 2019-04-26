@@ -5,6 +5,7 @@ $back : #f7f7f7;
 $white : #ffffff;
 $primary: #333333;
 $secondary: rgb(163, 163, 163);
+$red: red;
 $active: #a6e2dd;
 body{
     font-family: $font;
@@ -25,7 +26,28 @@ body{
     }
     .info{
         flex:2 ;
+        .margin{
+            display: flex;
+            margin:  auto;
+        }
+        form{
+            display: flex;
+            margin: 10px 0;
+            width:70%;
+            input{
+                flex:3;
+                margin: 2px;
 
+            }
+            button{
+                flex:1;
+                border: 2px $primary solid ;
+                border-radius: 4px ;
+                color: $primary;
+                margin: 2px;
+
+            }
+        }
     }
 
     .check, .products{

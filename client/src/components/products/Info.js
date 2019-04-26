@@ -1,35 +1,36 @@
 import React from 'react'
 import {MyContext} from '../../Provider'
+import {getDescription} from '../../queries'
+import {graphql, compose,Query} from 'react-apollo'
+import Actions from './Actions'
 
-const handleBuy=()=>{
-  console.log('handle buy')
-}
-const Buy = () =>
-<form>
-  <input type='number' placeholder = 'count...'/>
-  <button onClick={()=>handleBuy()}>Buy</button>
-</form>
 
-const Remove =() =>
-         <form>
-              <input type='number' placeholder = 'remove...'/>
-              <button>Remove</button>
-          </form>
-
-const ProductActions = () =>
-<div className="actions">
-  <Buy/>
-  <Remove/>
-</div>
+const Description = ({id}) =>
+<Query query={getDescription} variables ={{id:id}}>
+  {({ loading, error, data }) => {
+      if (loading||error) return null;
+    return (
+          <div className="descr">
+            <h5>Description</h5>
+              <p>       {data.productById.description}</p>
+            </div>
+      );
+    }}
+</Query>
 
 const InfoList = ({productInfo})=>
 (productInfo.prodId === undefined) ? (<p></p>):(
+<div className="">
 <ul>
   <li>id: <span>{productInfo.prodId }</span></li>
+  <li>model: <span>{productInfo.model }</span></li>
   <li>mark : <span>{productInfo.mark }</span></li>
   <li>color: <span>{productInfo.color }</span></li>
   <li>price: <span>{ productInfo.price }</span></li>
 </ul>
+<Description id ={productInfo.prodId} />
+  
+</div>
 )
 
 function Info() {
@@ -38,15 +39,24 @@ function Info() {
       {({productInfo})=>
         <div className = 'info'>
           <h4>Info</h4>
-          <InfoList productInfo={productInfo}/>
+          <InfoList productInfo={productInfo} />
          { productInfo.prodId === undefined ? 
-                      (<p></p>) :
-                       (<p>There is {productInfo.avalCount} in shop point # {productInfo.shopId}</p>)}
-          <ProductActions/>
+                      (<p className='margin'>Here will be info about item...</p>) :
+                       (<React.Fragment>
+                           <p>There is {productInfo.avalCount} in shop point # {productInfo.shopId}</p>
+                            <Actions/>
+                        </React.Fragment>)}
+         
         </div>
           }
     </MyContext.Consumer>
   )
 }
 
-export default Info
+export default graphql(getDescription,{name:'getDescription',options:(props)=>{
+  return{
+    variables:{
+         shop: props.shop
+    }
+  }
+}},)(Info)

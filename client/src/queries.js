@@ -89,3 +89,12 @@ export const  getShopQuery =  gql`
    }
  } }
 `
+
+export const getDescription= gql`
+query Description($id:Int!){
+  productById(id:$id) {
+    id
+    description
+  }
+
+}`

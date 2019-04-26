@@ -9,8 +9,6 @@ export const MyContext =createContext();
          setShop(parseInt(value))
      }
     //  deleteCookie('shop')
-     console.log('getCook',getCookie('shop'))
-
 
      const [productInfo, setProductInfo] = useState({});
      
