@@ -1,25 +1,36 @@
 import React from 'react'
+import { MyContext } from '../../Provider'
+
+const CheckItemList = ({check}) =>{
 
 
-const CheckItemList = () => <ul>
-                <li> 
-                    <span>m123</span>
-                    <span className = 'subsum'>2 x 4324 uah</span>
-                </li>
-               
-        </ul>   
-const CheckBody = () =>
-    <div className="checkContent">
-          <h5>Models</h5>
-          <CheckItemList/> 
-    </div> 
-function Check() {
-  return (
-    <div  className='check' >
-      <h4>Check</h4>
-      <CheckBody/>
-    </div>
-  )
+  var list = check.list == null ? ('check is empty'): 
+     check.list.map((row)=>{
+      return (<li><span> {row.mark } {row.model}</span>
+                  <span className='subsum'>  {row.count} x {row.price}</span>
+              </li>)
+    })
+
+    return <ul>{list}</ul>
 }
 
-export default Check
+
+const CheckBody = ({check}) =>
+    <div className="checkContent">
+          <h5>Models</h5>
+          <CheckItemList check={check}/> 
+    </div> 
+
+const Check = () => 
+<MyContext.Consumer>
+  {
+    ({check,setCheck})=>
+    <div  className='check' >
+      <h4>Check</h4>
+      <CheckBody check={check}/>
+    </div>
+  }
+</MyContext.Consumer>
+
+
+export default (Check)

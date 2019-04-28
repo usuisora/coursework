@@ -1,5 +1,23 @@
 import {gql} from 'apollo-boost'
 
+export const  getProductById =  gql`  
+query getProductById ($shop: Int!, $prodId:Int!)
+{
+  allProductsviews(filter:{shopId:{equalTo:$shop},prodId:{equalTo:$prodId}}) {
+  edges {
+    node {
+      category
+          mark
+          model
+          prodId
+          model
+          color
+      		shopId
+        }
+      }
+  }
+}`
+
 export const  displayProductsQuery =  gql`{
   allProductsviews {
   edges {

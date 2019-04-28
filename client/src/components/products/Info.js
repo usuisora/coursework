@@ -1,8 +1,9 @@
 import React from 'react'
 import {MyContext} from '../../Provider'
 import {getDescription} from '../../queries'
-import {graphql, compose,Query} from 'react-apollo'
+import {graphql,Query} from 'react-apollo'
 import Actions from './Actions'
+import EventBox from '../EventBox';
 
 
 const Description = ({id}) =>
@@ -33,18 +34,23 @@ const InfoList = ({productInfo})=>
 </div>
 )
 
+
+
+
 function Info() {
   return (
     <MyContext.Consumer>
-      {({productInfo})=>
+      {({productInfo,setMsg,msg})=>
         <div className = 'info'>
           <h4>Info</h4>
           <InfoList productInfo={productInfo} />
+          
          { productInfo.prodId === undefined ? 
                       (<p className='margin'>Here will be info about item...</p>) :
                        (<React.Fragment>
                            <p>There is {productInfo.avalCount} in shop point # {productInfo.shopId}</p>
-                            <Actions/>
+                            <Actions setMsg={setMsg} msg={msg} productInfo={productInfo}/>
+                            <EventBox msg ={msg}/>
                         </React.Fragment>)}
          
         </div>

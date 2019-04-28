@@ -15,6 +15,20 @@ nav .routes {
   display: flex;
   align-content: center;
   flex-direction: column;
+  margin: 20px auto;
+  border-top: 1px #333333 solid;
+  border-bottom: 1px #333333 solid;
+}
+nav .routes .link {
+  color: #333333;
+  justify-content: center;
+  padding: 10px 2px;
+  text-decoration: none;
+  font-size: 17px;
+}
+nav .routes .link:active {
+  text-decoration: underline;
+  color: black;
 }
 
 .info {
@@ -45,6 +59,18 @@ nav .routes {
   flex: 3;
 }
 
+.check .checkContent ul li {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #a3a3a3;
+}
+.check .checkContent ul li span {
+  flex: 1;
+}
+.check .checkContent ul li .subsum {
+  font-family: "Ubuntu";
+}
+
 .products ul {
   padding: 0;
   margin: 0;
@@ -63,6 +89,17 @@ nav .routes {
   border: none;
   background-color: #333333;
   color: #ffffff;
+}
+
+.eventbox {
+  position: absolute;
+  bottom: 20px;
+  background-color: yellow;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px #ddd;
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
 }
 
 /*# sourceMappingURL=App.css.map */
