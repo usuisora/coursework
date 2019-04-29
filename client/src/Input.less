@@ -1,32 +1,39 @@
-$font: "Nunito";
-$numfont: "Ubuntu";
+@font: "Nunito";
+@numfont: "Ubuntu";
 
-$back : #f7f7f7;
-$white : #ffffff;
-$primary: #333333;
-$secondary: rgb(163, 163, 163);
-$red: red;
-$active: #a6e2dd;
+@back : #f7f7f7;
+@white : #ffffff;
+@primary: #333333;
+@secondary: rgb(163, 163, 163);
+@red: red;
+@active: #a6e2dd;
 body{
-    font-family: $font;
-    color:$primary;
-    background-color: $back
+    font-family: @font;
+    color:@primary;
+    background-color: @back
 }
 .App{
     display: flex;
+    flex-direction: column;
+    @media (min-width:500px) {
+    flex-direction: row;
+
+      }
 }
     nav{
         flex:1 ;
+        order:1;
+
         .routes{
 
             display: flex;
             align-content: center;
             flex-direction: column;
             margin: 20px 20px 0 0px;
-            border-top: 2px $secondary solid;
-            border-bottom: 2px $secondary solid;
+            border-top: 2px @secondary solid;
+            border-bottom: 2px @secondary solid;
             .link{
-                color: $primary;
+                color: @primary;
                 justify-content: center;
                 padding: 10px 2px;
 
@@ -43,6 +50,10 @@ body{
     }
     .info{
         flex:2 ;
+        order:3;
+        @media (max-width:500px) {
+                order:2;
+              }
         .margin{
             display: flex;
             margin:  auto;
@@ -58,9 +69,9 @@ body{
             }
             button{
                 flex:1;
-                border: 2px $primary solid ;
+                border: 2px @primary solid ;
                 border-radius: 4px ;
-                color: $primary;
+                color: @primary;
                 margin: 2px;
 
             }
@@ -72,18 +83,29 @@ body{
     }
 
     .check{
+        order:2;
+        @media (max-width:500px) {
+            order:1;
+          }
       
         .checkContent{
             
             form{
                 display: flex;
-                margin: 0 50%;
-               
+                justify-content: end;
+                *{
+                    margin: 0  10px
+                }
+                button{
+                    border: 2px @primary solid ;
+                    border-radius: 4px ;
+                    color: @primary;
+                }
             }
             ul{
                 .head{
                     padding-bottom: 5px;
-                    color:$secondary;
+                    color:@secondary;
                 }
                 .subsum{
                     font-family: Ubuntu
@@ -92,16 +114,16 @@ body{
                    padding: 5px 0;
                     max-width: 440px;
                     display: flex;
-                    border-bottom: 1px solid $secondary;
+                    border-bottom: 1px solid @secondary;
                         span{
                             flex:4
                         }
                         
                         button{
                             flex :1;
-                            border: 2px $primary solid ;
+                            border: 2px @primary solid ;
                             border-radius: 4px ;
-                            color: $primary;
+                            color: @primary;
                             margin: 0 10px
                         }
                 }
@@ -109,6 +131,10 @@ body{
         }
     }
     .products{
+        order:2;
+        @media (max-width:500px) {
+            order:3;
+          }
         overflow-y:auto;
         height: 100vh;
         ul{
@@ -118,11 +144,11 @@ body{
             li{
                 display: inline-block;
                 list-style-type: none;
-                border: 2px $primary solid;
+                border: 2px @primary solid;
                 border-radius: 4px;
                 padding: 2px 4px;
                 margin: 2px  4px;
-                    box-shadow: $secondary 1px 2px 2px;
+                    box-shadow: @secondary 1px 2px 2px;
 
             }    
          }
@@ -134,8 +160,8 @@ body{
 
 .active{
     border: none;
-    background-color: $primary;
-    color:$white;
+    background-color: @primary;
+    color:@white;
 }
 
 .eventbox{
