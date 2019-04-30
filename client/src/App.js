@@ -23,13 +23,13 @@ const Routes = ({updateShop,shop}) =>
 </React.Fragment>
 
 
-const AppConsumer = () =>   <MyContext>
+const AppConsumer = () =>   <MyContext.Consumer>
 {
   ({shop,updateShop})=>(
      <Routes shop = {shop} updateShop={updateShop}/>
   )
 }
-</MyContext>
+</MyContext.Consumer>
 const App = () =>
       <Router>
         <div className="App">

@@ -12,18 +12,41 @@ export const MyContext =createContext();
 
      const [productInfo, setProductInfo] = useState({});
       const [msg, setMsg] = useState('Here will be last event');
-     const [check, setCheck] = useState({
-         list:[{id:8,count:2, price: 3242, model:'sdf', mark:'Sansa'},
-                {id:9,count:1,price: 3242, model:'sdf',mark:'Sansa'}],
-            seller:{name:'John',id:2}
-        });
-     
+      const [seller, setSeller] = useState('');
+      
+     const [check, setCheck] = useState([]);
+
+    //  const createPrice  = (p) => {return (p + (p*0.1)).toPrecision(2)}
+
+
+     const updateCheck = (count, prod) =>{
+        const  rep =  check.filter(el => {return(el.id == prod.prodId)});
+       if(rep.length<1){
+            const newPos= {
+                id:prod.prodId,
+                count:count,
+                price:prod.price,
+                model:prod.model,
+                mark:prod.mark,
+                category: prod.category,
+                color: prod.color
+            }
+            const newCheck = [...check, newPos]
+            setCheck(newCheck)
+       }else{
+            const newCheck = [...check];
+            newCheck.find(el=>el.id == prod.prodId).count+=count;
+            setCheck(newCheck)
+       }
+         
+     }
 
     return(
         <MyContext.Provider value = {{shop,updateShop,
                                       setProductInfo,productInfo,
                                       setMsg, msg,
-                                      check,setCheck}}>
+                                      check,setCheck,
+                                      updateCheck}}>
             {props.children}
         </MyContext.Provider>
     )

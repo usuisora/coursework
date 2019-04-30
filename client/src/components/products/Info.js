@@ -40,7 +40,7 @@ const InfoList = ({productInfo})=>
 function Info() {
   return (
     <MyContext.Consumer>
-      {({productInfo,setMsg,msg})=>
+      {({productInfo,setMsg,msg,updateCheck})=>
         <div className = 'info'>
           <h4>Info</h4>
           <InfoList productInfo={productInfo} />
@@ -49,7 +49,7 @@ function Info() {
                       (<p className='margin'>Here will be info about item...</p>) :
                        (<React.Fragment>
                            <p>There is {productInfo.avalCount} in shop point # {productInfo.shopId}</p>
-                            <Actions setMsg={setMsg} msg={msg} productInfo={productInfo}/>
+                            <Actions setMsg={setMsg} msg={msg} prod={productInfo} updateCheck={updateCheck}/>
                             <EventBox msg ={msg}/>
                         </React.Fragment>)}
          

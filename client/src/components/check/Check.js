@@ -2,23 +2,27 @@ import React from 'react'
 import { MyContext } from '../../Provider'
 import Sale from './Sale'
 const head =       <li className = 'head'>
+                      <span>category</span>
                       <span>mark</span>
                       <span>model</span>
+                      <span>color</span>
                       <span className='subsum'>price (uah)</span>
                       <button style = {{ opacity: 0}}></button>
                     </li>
-const showList = (check) =>check.list == null ? ('check is empty'): 
-check.list.map((row)=>{
+const showList = (check) =>check == null ? ('check is empty'): 
+check.map((row)=>{
  return (<li key = {row.id}>
+            <span>{row.category}</span>
              <span> {row.mark } </span>
               <span>{row.model}</span>
+              <span>{row.color}</span>
               <span className='subsum'>  {row.count} x {row.price}  = {row.count*row.price}</span>
               <button>x</button>
          </li>)
 })
 
 const showTotal  = (check) => {
-  const sum = check.list.reduce((sum,nex)=>{
+  const sum = check.reduce((sum,nex)=>{
      return sum + (nex.count*nex.price) 
        },0) 
   return <p>Total : {sum} uah</p>
