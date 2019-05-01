@@ -3,7 +3,8 @@ import {graphql} from 'react-apollo'
 import {getShopQuery} from '../../queries'
 import {MyContext} from '../../Provider'
 import BarLinks from'./BarLinks'
-
+import { toPromise } from 'apollo-link';
+import Tips from './Tips'
 
 
 const SelectShop = ({query})=>{
@@ -16,7 +17,7 @@ const SelectShop = ({query})=>{
         {
           ({updateShop,shop})=>(
            <div className="selectCon">
-              <h4>Shop</h4>
+              <h4>Shop #  </h4>
                 <select name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{updateShop(parseInt(value))}} >
                     { query.allShops.edges.map(({node})=>{
                         return <option  key = {node.id} value= {node.id}>{node.id}</option>
@@ -37,6 +38,7 @@ function Nav({getShopQuery}) {
     <nav>
             <SelectShop query = {getShopQuery}/>
             <BarLinks/>
+            <Tips/>
     </nav>
   )
 }

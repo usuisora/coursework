@@ -5,8 +5,13 @@ export const MyContext =createContext();
  export function MyProvider (props){
      const [shop, setShop] = useState((getCookie('shop')===undefined) ? 1 : parseInt(getCookie('shop')) );
      const updateShop = (value)=>{
+         if(check.length<1){
          document.cookie = 'shop='+value;
          setShop(parseInt(value))
+         }else
+         {
+             setMsg('Can\'t switch shop while check isn\'t empty  ')
+         }
      }
     //  deleteCookie('shop')
 

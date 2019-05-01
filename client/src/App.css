@@ -148,6 +148,22 @@ nav .tips {
   margin: 2px  4px;
   box-shadow: #a3a3a3 1px 2px 2px;
 }
+.history,
+.supply {
+  order: 2;
+  flex: 3 ;
+}
+@media (max-width: 500px) {
+  .history,
+  .supply {
+    order: 3;
+  }
+}
+.history th,
+.history tr {
+  display: flex;
+  flex: 1;
+}
 .active {
   border: none;
   background-color: #333333;
