@@ -146,7 +146,7 @@ nav .tips {
   border-radius: 4px;
   padding: 2px 4px;
   margin: 2px  4px;
-  box-shadow: #a3a3a3 1px 2px 2px;
+  box-shadow: #a3a3a3 1px 2px 1px;
 }
 .history,
 .supply {
@@ -159,10 +159,32 @@ nav .tips {
     order: 3;
   }
 }
-.history th,
-.history tr {
+.history table {
+  width: 100%;
+  padding: 2%;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 2px 2px 3px #cacaca;
+}
+.history table th,
+.history table tr {
   display: flex;
-  flex: 1;
+  border-bottom: 1px #a3a3a3 solid;
+}
+.history table th td,
+.history table tr td {
+  width: 30%;
+  align-content: center;
+  justify-content: center;
+  text-align: left;
+  margin: auto;
+  padding: 0;
+}
+.history table tr:hover {
+  background-color: #f7f7f7;
+}
+.history table tr:active {
+  background-color: yellow;
 }
 .active {
   border: none;
@@ -177,4 +199,5 @@ nav .tips {
   display: flex;
   justify-content: center;
   max-width: 300px;
+  margin: auto;
 }

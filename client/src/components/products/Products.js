@@ -47,6 +47,10 @@ function Products({displayStoves,displayFridges,displayWashers,shop}) {
   )
 }
 
+// const Main =()=>{
+//   Pros
+// }
+
 export default compose(
   graphql(displayFridges,{name:'displayFridges',options:(props)=>{
     return{
