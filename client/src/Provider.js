@@ -46,12 +46,19 @@ export const MyContext =createContext();
          
      }
 
+     const DeleteFromCheck = (id) =>{
+         const newCheck = check.filter(el=>el.id != id)
+         console.log('rowid:',id,'id',newCheck)
+         setCheck(newCheck)
+     }
+
     return(
         <MyContext.Provider value = {{shop,updateShop,
                                       setProductInfo,productInfo,
                                       setMsg, msg,
                                       check,setCheck,
-                                      updateCheck}}>
+                                      updateCheck,
+                                      DeleteFromCheck}}>
             {props.children}
         </MyContext.Provider>
     )

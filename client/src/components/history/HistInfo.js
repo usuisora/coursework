@@ -3,11 +3,17 @@
     function HistInfo() {
       return (
         <div className="info">
-            <h5>Check items</h5>
+         <h4>Info</h4>
+        <h3>Seller : John</h3>
+            <h4>Products in text : </h4>
           <ul>
             <li>n123 x 2</li>
+            <li>n123 x 2</li>
+            <li>n123 x 2</li>
+            <li>n123 x 2</li>
           </ul>
-          <h5>Seller : John</h5>
+          
+
         </div>
       )
     }

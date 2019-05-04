@@ -26,7 +26,7 @@ const InfoRoutes = ({updateShop, shop}) =>
 <Switch>
     <Route path="/products" exact render={(props) => <PrInfo {...props} shop={shop} />} />
     <Route path="/supply" exact render={(props) => <SupInfo {...props} shop={shop} />} />
-    <Route path="/history" exact render={(props) => <Hist   Info {...props} shop={shop} />} />
+    <Route path="/history" exact render={(props) => <HistInfo {...props} shop={shop} />} />
     <Route login="/" exact render={(props) => <Empty {...props} shop={shop} updateShop={updateShop}/>} />
 </Switch>
 
