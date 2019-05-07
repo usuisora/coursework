@@ -1,0 +1,31 @@
+.info{
+    margin: 10px;
+    flex:2 ;
+    order:3;
+    height: 90vh;
+    @media (max-width:500px) {
+            order:2;
+          }
+    .margin{
+        display: flex;
+        margin:  auto;
+    }
+    form{
+        display: flex;
+        margin: 10px 0;
+        width:40%;
+        input{
+            flex:1;
+            margin: 2px;
+            max-width: 80px;
+        }
+        button{
+            flex:1;
+            border: 2px @primary solid ;
+            border-radius: 4px ;
+            color: @primary;
+            margin: 2px;
+
+        }
+    }
+}

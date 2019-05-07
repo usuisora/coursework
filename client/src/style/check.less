@@ -1,0 +1,46 @@
+.check{
+    margin: 10px;
+    order:2;
+    @media (max-width:500px) {
+        order:1;
+      }
+    .checkContent{
+        form{
+            display: flex;
+            justify-content: end;
+            *{
+                margin: 0  10px
+            }
+            button{
+                border: 2px @primary solid ;
+                border-radius: 4px ;
+                color: @primary;
+            }
+        }
+        ul{
+            .head{
+                padding-bottom: 5px;
+                color:@secondary;
+            }
+            .subsum{
+                font-family: Ubuntu
+            }
+            li{
+               padding: 5px 0;
+                display: flex;
+                border-bottom: 1px solid @secondary;
+                    span{
+                        flex:4
+                    }
+                    
+                    button{
+                        flex :1;
+                        border: 2px @primary solid ;
+                        border-radius: 4px ;
+                        color: @primary;
+                        margin: 0 10px
+                    }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@ import {MyContext} from '../../Provider'
 import BarLinks from'./BarLinks'
 import Tips from './Tips'
 import EventBox from '../EventBox'
-
+import User from './User'
 
 
 const Select = ({query,shop,updateShop}) =>
@@ -24,6 +24,7 @@ const OnQueryExistFragment = ({query}) =>
 {
   ({updateShop,shop,msg})=>(
    <React.Fragment>
+      <User/>
       <BarLinks/>
       <EventBox msg ={msg}/>
       <Select query = {query} updateShop={updateShop} shop={shop}/>

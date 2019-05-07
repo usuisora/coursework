@@ -1,0 +1,73 @@
+@font: "Nunito";
+@numfont: "Ubuntu";
+@back : #f7f7f7;
+@white : #ffffff;
+@primary: #333333;
+@secondary: rgb(163, 163, 163);
+@shadow: rgb(202, 202, 202);
+@red: red;
+@active: #a6e2dd;
+@import "nav";
+@import "info";
+@import "products";
+@import "check";
+@import "history";
+
+
+
+    body{
+        font-family: @font;
+        color:@primary;
+        background-color: @back
+    }
+    .App{
+        display: flex;
+        flex-direction: column;
+    
+        @media (min-width:500px) {
+        flex-direction: row;
+        
+        }
+    }
+    
+
+    .check, .products{
+        flex:3 ;
+    }
+
+
+    .history,.supply{
+        margin: 10px;
+
+        order:2;
+        flex:3 ;
+
+        @media (max-width:500px) {
+            order:3;
+          }
+    }
+    
+  
+
+    .active{
+        border: none;
+        background-color: @primary;
+        color:@white;
+    }
+
+    .eventbox{
+
+        background-color: yellow;
+        border-radius: 3px;
+            box-shadow: #ddd 1px 3px 1px ;
+        display:flex;
+        justify-content: center;
+        }
+
+
+        .card{
+            box-shadow: #ddd 1px 3px 1px ;
+            border-radius: 3px;
+            background-color: white;
+            margin: auto
+        }

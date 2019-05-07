@@ -1,0 +1,25 @@
+.products{
+    margin: 10px;
+
+    order:2;
+    @media (max-width:500px) {
+        order:3;
+      }
+    overflow-y:auto;
+    height: 100vh;
+    ul{
+        padding: 0;
+        margin: 0;
+        
+        li{
+            display: inline-block;
+            list-style-type: none;
+            border: 2px @primary solid;
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin: 2px  4px;
+                box-shadow: @secondary 1px 2px 1px;
+
+        }    
+     }
+}
