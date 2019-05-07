@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Tips = () =>
-    <div className="tips card">
+    <blockquote >
         Tip: Check eventbox
-    </div>
+    </blockquote>
 
     export default Tips

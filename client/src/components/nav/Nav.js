@@ -11,7 +11,7 @@ import User from './User'
 const Select = ({query,shop,updateShop}) =>
 <div className="selectCon">
       <h5>Shop :</h5>
-        <select name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{updateShop(parseInt(value))}} >
+        <select  className= 'browser-default ' name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{updateShop(parseInt(value))}} >
             { query.allShops.edges.map(({node})=>{
                 return <option  key = {node.id} value= {node.id}>{node.id}</option>
               })
@@ -43,10 +43,10 @@ const Preloader= ({query})=>{
 
 function Nav({getShopQuery}) {
   return (
-    <nav>
+    <div className='nav'>
             <Preloader query = {getShopQuery}/>
             <Tips/>
-    </nav>
+    </div>
   )
 }
 

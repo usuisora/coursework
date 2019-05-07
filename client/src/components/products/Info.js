@@ -4,7 +4,6 @@ import {getDescription} from '../../queries'
 import {graphql,Query} from 'react-apollo'
 import Actions from './Actions'
 
-
 const Description = ({id}) =>
 <Query query={getDescription} variables ={{id:id}}>
   {({ loading, error, data }) => {

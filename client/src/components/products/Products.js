@@ -30,17 +30,17 @@ function Products({displayStoves,displayFridges,displayWashers,shop}) {
   
   return (
     <div className = 'products'>
-      <h4>Products</h4>
+      <h5>Products</h5>
       <div className = 'category'>
-          <h3>Fridges</h3>
+          <h4>Fridges</h4>
            { show(displayFridges,shop)}
       </div>
       <div className = 'category'>
-          <h3>Stoves</h3>
+          <h4>Stoves</h4>
           { show(displayStoves,shop)}
       </div>
       <div className = 'category'>
-          <h3>Washers</h3>
+          <h4>Washers</h4>
           { show(displayWashers,shop)}
       </div>
     </div>

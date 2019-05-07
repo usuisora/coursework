@@ -26,11 +26,14 @@ const Select =({shop})=>
                 return 'Loading';
             }
             return(
-                <select name='seller'>
+               
+                <div className="col s12">
+                <select className= 'browser-default '>
                     {data.allSellers.edges.map(({node})=>
                          <option value={node.id} key = {node.id}>{node.name}  {node.lastName}</option>
                     )}
                 </select>
+                </div>
             )
         }}
     </Query>
@@ -48,9 +51,8 @@ function Sale() {
     }
   return (
    <form onSubmit={(e)=>handleSubmit(e)}>
-       <label htmlFor="seller">Seller </label>
-        <Consumer/>
-       <button>Sale</button>
+        {/* <Consumer/> */}
+       <button className = 'btn-flat'>Sale</button>
    </form>
   )
 }

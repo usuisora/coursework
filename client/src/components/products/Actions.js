@@ -13,13 +13,13 @@ const handleSale=(e,setMsg,prod,count,updateCheck)=>{
             return(
             <form>
               <input type='number' value={newItemCount} placeholder = 'count...' onChange={(e)=>setNewItemCount(parseInt(e.target.value))}/>
-              <button onClick={(e,productInfo)=>handleSale(e,setMsg,prod,newItemCount,updateCheck)}>Sale</button>
+              <button className = 'btn btn-flat' onClick={(e,productInfo)=>handleSale(e,setMsg,prod,newItemCount,updateCheck)}>Sale</button>
             </form>
             )}
   const Remove =() =>
-           <form>
-                <input type='number' placeholder = 'remove...'/>
-                <button>Remove</button>
+           <form >
+                <input type='number'  placeholder = 'remove...'/>
+                <button className = 'btn btn-flat red-text'>Remove</button>
             </form>
   
   const Actions = ({setMsg,msg,prod,updateCheck}) =>

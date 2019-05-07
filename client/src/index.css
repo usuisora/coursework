@@ -19,3 +19,7 @@ html, body, .viewport {
   height: 100%;
   margin: 0;
 }
+
+h6{
+  padding: 10%;
+}
