@@ -1,17 +1,21 @@
 import React from 'react'
 
 const HistoryList = () => 
-<table>
-    <th>
-        <td>id</td>
+<table className='card'>
+    <thead>
+       <tr>
+       <td>id</td>
         <td>seller</td>
         <td>date</td>
-    </th>
+       </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>123</td>
         <td>Loh</td>
         <td>23.23.12</td>
     </tr>
+    </tbody>
 </table>
 function History() {
   return (

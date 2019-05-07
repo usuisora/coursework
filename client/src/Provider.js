@@ -48,7 +48,8 @@ export const MyContext =createContext();
 
      const DeleteFromCheck = (id) =>{
          const newCheck = check.filter(el=>el.id != id)
-         console.log('rowid:',id,'id',newCheck)
+         const model = check.find(el=>el.id == id).model
+         setMsg(`${model} was removed from check`)
          setCheck(newCheck)
      }
 

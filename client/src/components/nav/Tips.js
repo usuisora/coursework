@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Tips = () =>
-    <div className="tips">
+    <div className="tips card">
         Tip: Check eventbox
     </div>
 

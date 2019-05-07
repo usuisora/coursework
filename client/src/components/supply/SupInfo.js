@@ -3,7 +3,8 @@ import React from 'react'
 function SupInfo() {
   return (
     <div className = 'info'>
-      <h5>Supply list</h5>
+      <h5>Order list</h5>
+      
     </div>
   )
 }

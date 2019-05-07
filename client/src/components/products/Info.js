@@ -3,7 +3,6 @@ import {MyContext} from '../../Provider'
 import {getDescription} from '../../queries'
 import {graphql,Query} from 'react-apollo'
 import Actions from './Actions'
-import EventBox from '../EventBox';
 
 
 const Description = ({id}) =>
@@ -50,7 +49,6 @@ function Info() {
                        (<React.Fragment>
                            <p>There is {productInfo.avalCount} in shop point # {productInfo.shopId}</p>
                             <Actions setMsg={setMsg} msg={msg} prod={productInfo} updateCheck={updateCheck}/>
-                            <EventBox msg ={msg}/>
                         </React.Fragment>)}
          
         </div>
