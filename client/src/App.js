@@ -8,8 +8,8 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 const AppConsumer = () =>   <MyContext.Consumer>
 {
-  ({shop,updateShop})=>(
-     <Routes shop = {shop} updateShop={updateShop}/>
+  ({shop,updateShop,isAuth})=>(
+     <Routes shop = {shop} updateShop={updateShop} isAuth = {isAuth}/>
   )
 }
 </MyContext.Consumer>

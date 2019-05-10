@@ -17,10 +17,16 @@ export const MyContext =createContext();
 
      const [productInfo, setProductInfo] = useState({});
       const [msg, setMsg] = useState('Here will be last event');
-      const [seller, setSeller] = useState('');
       
      const [check, setCheck] = useState([]);
 
+     //auth
+     const [isAuth, setIsAuth] = useState(false);
+     const [user, setUser] = useState({login:'Name', pass: '0000'});
+     const Login = () =>{
+         return 
+     }
+     
     //  const createPrice  = (p) => {return (p + (p*0.1)).toPrecision(2)}
 
 
@@ -59,7 +65,8 @@ export const MyContext =createContext();
                                       setMsg, msg,
                                       check,setCheck,
                                       updateCheck,
-                                      DeleteFromCheck}}>
+                                      DeleteFromCheck,
+                                      isAuth,setIsAuth}}>
             {props.children}
         </MyContext.Provider>
     )

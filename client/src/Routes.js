@@ -7,13 +7,14 @@ import Check from './components/check/Check'
 import Supply from './components/supply/Supply';
 import History from './components/history/History'
 import Empty from './components/Empty'
+import Admin from './components/admin/Admin'
+import Auth from './components/auth/Auth'
 
 import PrInfo from './components/products/Info';
 import SupInfo from './components/supply/SupInfo.js'
 import HistInfo from './components/history/HistInfo'
 import CheckInfo from './components/check/CheckInfo'
 
-import Login from './components/Login'
 
 const DynRoutes = ({updateShop, shop}) =>
 <Switch>
@@ -21,8 +22,7 @@ const DynRoutes = ({updateShop, shop}) =>
     <Route path="/check" exact component={Check} />
     <Route path="/supply" exact component={Supply} />
     <Route path="/history" exact component={History} />
-    <Route login="/" exact render={(props) => <Login {...props} shop={shop} updateShop={updateShop}/>} />
-
+    <Route path="/manage" exact component={Admin} />
 
 </Switch>
 
@@ -33,16 +33,19 @@ const InfoRoutes = ({updateShop, shop}) =>
     <Route path="/history" exact render={(props) => <HistInfo {...props} shop={shop} />} />
     <Route path="/check" exact render={(props) => <CheckInfo {...props} shop={shop} />} />
 
-    <Route login="/" exact render={(props) => <Empty {...props} shop={shop} updateShop={updateShop}/>} />
 </Switch>
 
+const Routes =({updateShop, shop, isAuth})=>{ return  (isAuth === true) ? (
+   
+        <React.Fragment>
+            <Nav />
+            <DynRoutes shop={shop} updateShop={updateShop}/>
+            <InfoRoutes/>   
+        </React.Fragment>
+  ):(
+        <Route path="/" exact render={(props) => <Auth{...props} shop={shop} updateShop={updateShop}/>} />
+  
+  )
 
-const Routes = ({updateShop,shop}) =>
-<React.Fragment>
-      <Nav />
-      <DynRoutes shop={shop} updateShop={updateShop}/>
-      <InfoRoutes/>
-</React.Fragment>
-
-
+  }
 export default Routes

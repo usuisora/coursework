@@ -153,6 +153,9 @@
 .history table tr:active {
   background-color: yellow;
 }
+.admin blockquote {
+  border-color: yellow;
+}
 body {
   font-family: "Nunito";
   color: #333333;
@@ -172,14 +175,16 @@ body {
   flex: 3 ;
 }
 .history,
-.supply {
+.supply,
+.admin {
   margin: 10px;
   order: 2;
   flex: 3 ;
 }
 @media (max-width: 500px) {
   .history,
-  .supply {
+  .supply,
+  .admin {
     order: 3;
   }
 }
@@ -200,4 +205,25 @@ body {
   border-radius: 3px;
   background-color: white;
   margin: auto;
+}
+blockquote {
+  border-color: yellow;
+}
+.auth {
+  flex: 5;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  min-width: 100vw ;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #ffec98;
+  z-index: 3;
+}
+.auth form {
+  width: 50%;
+  display: flex;
+  margin: 10% auto;
+  flex-direction: column;
+  padding: 12px;
 }

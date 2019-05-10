@@ -8,7 +8,7 @@ function EventBox({msg,children}) {
  </div>
    }
   return (
-    <div className='card yellow z-depth-0'>
+    <div className='card yellow lighten-3 z-depth-1'>
       <h6>{msg}</h6>
     </div>
   )

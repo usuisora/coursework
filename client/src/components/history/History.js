@@ -21,7 +21,9 @@ function History() {
   return (
     <div className ='history'>
       <h4>History</h4>
-      <h5>Checks</h5>
+      <blockquote>
+        archive of purhuase
+      </blockquote>
       <HistoryList/>
     </div>
   )
