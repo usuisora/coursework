@@ -5,10 +5,10 @@ import { checkSellerQuery, checkManagerQuery} from './authQueries'
 import QueryComponent from './QueryComponent'
 
 
-const handleAuth = (e,who,authId,setIsAuth) =>{
+const handleAuth = (e,who,authId,Login) =>{
      e.preventDefault();
      console.log('from handle',authId);
-     (authId>0) ? setIsAuth(true) : alert('incorrect')
+     authId>0 ? Login( authId,who) : alert('incorrect')
    
     
 }
@@ -21,7 +21,7 @@ function Auth(props) {
   
   return (
     <MyContext.Consumer>
-      {({Login,setIsAuth})=>  <div className= 'auth'>
+      {({Login})=>  <div className= 'auth'>
           <form className ='card yellow lighten-4'>
           <h5>Enter the system</h5>
               <div>
@@ -37,7 +37,7 @@ function Auth(props) {
                 <option value="manager">Manager</option>
               </select>
 
-              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,setIsAuth)}}>
+              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,Login)}}>
                                 Sumbit</button>
           </form>
 

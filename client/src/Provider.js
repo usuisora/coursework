@@ -22,9 +22,13 @@ export const MyContext =createContext();
 
      //auth
      const [isAuth, setIsAuth] = useState(false);
-     const [user, setUser] = useState({login:'Name', pass: '0000'});
-     const Login = () =>{
-         return 
+     const [userId, setUserId] = useState(0);
+     const [role, setRole] = useState('');
+     
+     const Login = (id,who) =>{
+          setRole(who)
+          setUserId(id)
+          setIsAuth(true);
      }
      
     //  const createPrice  = (p) => {return (p + (p*0.1)).toPrecision(2)}

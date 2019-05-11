@@ -40,11 +40,12 @@ const Routes =({updateShop, shop, isAuth})=>{ return  (isAuth === true) ? (
         <React.Fragment>
             <Nav />
             <DynRoutes shop={shop} updateShop={updateShop}/>
-            <InfoRoutes/>   
-        </React.Fragment>
+            <InfoRoutes/>
+    </React.Fragment>
+           
+        
   ):(
-        <Route path="/" exact render={(props) => <Auth{...props} shop={shop} updateShop={updateShop}/>} />
-  
+         <Route path="/" render={(props) => <Auth{...props} shop={shop} updateShop={updateShop}/>} />
   )
 
   }
