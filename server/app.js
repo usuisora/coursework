@@ -15,8 +15,9 @@ app.use(
   })
 );
 
-app.use(cors())
 
+app.use(cors())
+// app.use('env',process.env)
 app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));

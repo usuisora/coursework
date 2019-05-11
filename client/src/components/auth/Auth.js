@@ -3,16 +3,18 @@ import {MyContext} from '../../Provider'
 import {graphql, compose,Query} from 'react-apollo'
 import { checkSellerQuery, checkManagerQuery} from './authQueries'
 import QueryComponent from './QueryComponent'
+import dotenv from 'dotenv'
 
 
-const handleAuth = (e,who,authId,Login) =>{
+const handleAuth = (e,who,authId,Login,history) =>{
      e.preventDefault();
      console.log('from handle',authId);
      authId>0 ? Login( authId,who) : alert('incorrect')
-   
+     console.log(process.env)
+     history.push('/products')
     
 }
-function Auth(props) {
+function Auth({history}) {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [who, setWho] = useState('seller');
@@ -37,7 +39,7 @@ function Auth(props) {
                 <option value="manager">Manager</option>
               </select>
 
-              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,Login)}}>
+              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,Login,history)}}>
                                 Sumbit</button>
           </form>
 

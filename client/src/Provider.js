@@ -70,7 +70,8 @@ export const MyContext =createContext();
                                       check,setCheck,
                                       updateCheck,
                                       DeleteFromCheck,
-                                      isAuth,setIsAuth}}>
+                                      isAuth,setIsAuth,
+                                      Login}}>
             {props.children}
         </MyContext.Provider>
     )
