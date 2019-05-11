@@ -5,13 +5,11 @@ import { checkSellerQuery, checkManagerQuery} from './authQueries'
 import QueryComponent from './QueryComponent'
 
 
-const handleAuth = (e,{checkSellerQuery,history},login,password,Login,isAuth) =>{
+const handleAuth = (e,who,authId,setIsAuth) =>{
      e.preventDefault();
-    // //  Login(login,password);
-  
-    //  (isAuth == true) ? 
-    //  history.push('/products')
-    //  : alert('Login or password are incorrect')
+     console.log('from handle',authId);
+     (authId>0) ? setIsAuth(true) : alert('incorrect')
+   
     
 }
 function Auth(props) {
@@ -20,10 +18,10 @@ function Auth(props) {
   const [who, setWho] = useState('seller');
   const [authId, setAuthId] = useState({});
   
-
+  
   return (
     <MyContext.Consumer>
-      {({Login,isAuth})=>  <div className= 'auth'>
+      {({Login,setIsAuth})=>  <div className= 'auth'>
           <form className ='card yellow lighten-4'>
           <h5>Enter the system</h5>
               <div>
@@ -38,10 +36,13 @@ function Auth(props) {
                 <option value="seller">Seller</option>
                 <option value="manager">Manager</option>
               </select>
-              <QueryComponent query={(who =='seller') ?  checkSellerQuery:checkManagerQuery } mng={(who =='seller')? false:true}
-               setAuthId={setAuthId}  managerQuery={checkManagerQuery} login={login} password={password}/>
-              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,this.props,login,password,Login,isAuth,)}}>Sumbit</button>
+
+              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,setIsAuth)}}>
+                                Sumbit</button>
           </form>
+
+          <QueryComponent Squery={checkSellerQuery} Mquery= {checkManagerQuery} who={who}
+               setAuthId={setAuthId}  login={login} password={password}/>
     </div>}
     </MyContext.Consumer>
   )

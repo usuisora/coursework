@@ -3,19 +3,19 @@ import React from 'react'
 import {Query} from 'react-apollo'
 
 
-const CheckQueryCompomponent = ({query,login,password,setAuthId,mng}) => 
-    <Query
-      query={query}
-      variables={{ login, password }}
-      >
-      {({ loading, error, data, refetch }) => {
-        console.log(data);
-        (mng==true)?
-        setAuthId(data.checkauthmanager)
-:
-        setAuthId(data.checkauthseller)
-
-        return (<p>Wait</p>)}}
-      </Query>
+const CheckQueryCompomponent = ({Squery,Mquery,login,password,setAuthId,who}) => {
+    const query = (who==='seller')? Squery: Mquery;
+    return(
+         <Query
+            query={query}
+            variables={{ login, password }}
+            >
+            {({ loading, error, data, refetch }) => {
+                (who==='seller')?setAuthId(data.checkauthseller):setAuthId(data.checkauthmanager)
+                return (<p style={{display:'none'}}>Hello</p>)}}
+         </Query>
+    )
+}
+   
 
 export default CheckQueryCompomponent
