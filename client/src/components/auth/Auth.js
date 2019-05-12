@@ -3,16 +3,21 @@ import {MyContext} from '../../Provider'
 import {graphql, compose,Query} from 'react-apollo'
 import { checkSellerQuery, checkManagerQuery} from './authQueries'
 import QueryComponent from './QueryComponent'
-import dotenv from 'dotenv'
-
-
+import 'dotenv'
+import axios from 'axios'
 const handleAuth = (e,who,authId,Login,history) =>{
      e.preventDefault();
      console.log('from handle',authId);
+     const user = {
+       login:'seller',
+       password:'1111',
+       port:'3232'
+     }
+     axios.post('/auth', user).then(res=>{
+       console.log(res.data)
+     })
      authId>0 ? Login( authId,who) : alert('incorrect')
-     console.log(process.env)
-     history.push('/products')
-    
+    // 
 }
 function Auth({history}) {
   const [login, setLogin] = useState('');
