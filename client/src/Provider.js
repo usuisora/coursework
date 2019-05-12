@@ -21,11 +21,14 @@ export const MyContext =createContext();
      const [check, setCheck] = useState([]);
 
      //auth
-     const [isAuth, setIsAuth] = useState(false);
-     const [userId, setUserId] = useState(0);
-     const [role, setRole] = useState('');
+     const [isAuth, setIsAuth] = useState((getCookie('isAuth')===undefined) ? false : parseInt(getCookie('isAuth')));
+     const [userId, setUserId] = useState((getCookie('userId')===undefined) ? -1 : parseInt(getCookie('userId')) );
+     const [role, setRole] = useState((getCookie('role')===undefined) ? '' : parseInt(getCookie('role')));
      
      const Login = (id,who) =>{
+        document.cookie = 'role='+who;
+        document.cookie = 'userId='+id;
+        document.cookie = 'isAuth='+true;
           setRole(who)
           setUserId(id)
           setIsAuth(true);

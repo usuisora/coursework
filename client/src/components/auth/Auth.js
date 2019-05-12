@@ -8,6 +8,7 @@ import axios from 'axios'
 const handleAuth = (e,who,authId,Login,history) =>{
      e.preventDefault();
      console.log('from handle',authId);
+     //change server link
      const user = {
        login:'seller',
        password:'1111',
@@ -16,8 +17,8 @@ const handleAuth = (e,who,authId,Login,history) =>{
      axios.post('/auth', user).then(res=>{
        console.log(res.data)
      })
-     authId>0 ? Login( authId,who) : alert('incorrect')
-    // 
+     //change data on front local store
+     authId > 0 ? Login( authId,who) : alert('incorrect')
 }
 function Auth({history}) {
   const [login, setLogin] = useState('');
