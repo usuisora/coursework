@@ -1,7 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import React,{useState} from 'react'
-import back from '../../images/user.jpg'
-import { Link } from "react-router-dom";
+import React from 'react'
 import {Query,graphql} from 'react-apollo'
 import {MyContext} from '../../Provider'
 import {SellerByIdQuery} from '../../queries'
@@ -16,7 +14,7 @@ function UserContent({history,Logout,user,role}) {
  
   return (
     <div className="card z-depth-1 center yellow lighten-4">
-      <button class="waves-effect waves-teal btn-flat"  onClick={()=>handleExit(Logout,history)}><i class="material-icons">account_circle</i> </button>
+      <button className="waves-effect waves-teal btn-flat"  onClick={()=>handleExit(Logout,history)}><i className="material-icons">account_circle</i> </button>
       <div style ={{ textTransform: 'capitalize'}}>{role} {user.name} {user.lastName}</div>
       <div>Shop {user.shopId}</div>
     </div>

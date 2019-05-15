@@ -116,6 +116,26 @@ query Description($id:Int!){
   }
 
 }`
+export const getProductInfo = gql`
+query  getProductInfo($id:Int!)
+{
+  productById(id:$id) {
+    id
+    description
+    billitemsByProductid{
+      nodes{
+			billByBillid
+        {
+          producerByProducerid{
+            mark
+          }
+				}
+      }
+    }
+  }
+}
+`
+
 
 export const SellerByIdQuery =  gql`
 query SellerByIdQuery($userId:Int!){
@@ -130,7 +150,7 @@ sellerById(id:$userId) {
 
 `
 export const  getWirehouseByCategory =  gql`
-query  getWirehouseByCategory($category:String!)
+query  ($category:String!)
 {
   getWirehouseByCategory(cat: $category) {
     edges {

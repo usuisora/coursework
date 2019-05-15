@@ -2,17 +2,21 @@
 import React from 'react'
 import {graphql, Query} from 'react-apollo'
 import {getWirehouseByCategory} from '../../queries'
+import ProductList from './ProductList'
+
 
 
 const CategoryReserve = ({category}) => 
 <Query  query={getWirehouseByCategory}  variables = {{category}} >
     {
-        (loading,error,data)=>{
+        ({loading,error,data})=>{
+            console.log(data)
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             return (
                <React.Fragment>
                    <h4>{category}</h4>
+                   <ProductList edges = {data.getWirehouseByCategory.edges} />
                </React.Fragment>
             )
         }
@@ -21,4 +25,4 @@ const CategoryReserve = ({category}) =>
 </Query>
 
 
-export default graphql(getWirehouseByCategory)(CategoryReserve)
+export default (CategoryReserve)
