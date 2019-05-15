@@ -1,15 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Nav from './components/nav/Nav'
 import Products from './components/products/Products'
 import Check from './components/check/Check'
 import Supply from './components/supply/Supply';
 import History from './components/history/History'
-import Empty from './components/Empty'
 import Admin from './components/admin/Admin'
 import Auth from './components/auth/Auth'
-
 import PrInfo from './components/products/Info';
 import SupInfo from './components/supply/SupInfo.js'
 import HistInfo from './components/history/HistInfo'
@@ -26,27 +24,26 @@ const DynRoutes = ({updateShop, shop}) =>
 
 </Switch>
 
-const InfoRoutes = ({updateShop, shop}) =>
+const InfoRoutes = () =>
 <Switch>
-    <Route path="/products" exact render={(props) => <PrInfo {...props} shop={shop} />} />
-    <Route path="/supply" exact render={(props) => <SupInfo {...props} shop={shop} />} />
-    <Route path="/history" exact render={(props) => <HistInfo {...props} shop={shop} />} />
-    <Route path="/check" exact render={(props) => <CheckInfo {...props} shop={shop} />} />
+    <Route path="/products" component = {PrInfo } />
+    <Route path="/supply" component = {SupInfo } />
+    <Route path="/history" component = {HistInfo } />
+    <Route path="/check" component = {CheckInfo } />
 
 </Switch>
 
-const Routes =({updateShop, shop, isAuth})=>{ return  (isAuth === true) ? (
-   
-        <React.Fragment>
-            <Nav />
-            <DynRoutes shop={shop} updateShop={updateShop}/>
-            <InfoRoutes/>
-    </React.Fragment>
-           
-        
-  ):(
-         <Route path="/" render={(props) => <Auth{...props} shop={shop} updateShop={updateShop}/>} />
-  )
-
+const Routes =({updateShop, shop, isAuth})=>{ 
+    console.log('auth from routes',typeof(isAuth))
+    const res =  (isAuth === 'true') ?
+                        <React.Fragment>
+                              <Nav />
+                              <DynRoutes shop={shop} updateShop={updateShop}/>
+                              <InfoRoutes/>
+                          </React.Fragment>
+               :           
+      <Route path="/" component ={Auth}/>
+  return res;
+    
   }
 export default Routes

@@ -116,3 +116,30 @@ query Description($id:Int!){
   }
 
 }`
+
+export const SellerByIdQuery =  gql`
+query SellerByIdQuery($userId:Int!){
+sellerById(id:$userId) {
+  id
+  name
+  lastName
+  shopId
+
+}
+}
+
+`
+export const  getWirehouseByCategory =  gql`
+query  getWirehouseByCategory($category:String!)
+{
+  getWirehouseByCategory(cat: $category) {
+    edges {
+      node {
+        prodId
+        model
+        price
+        avalCount
+      }
+    }
+  }
+}`

@@ -22,9 +22,9 @@ const Select = ({query,shop,updateShop}) =>
 const OnQueryExistFragment = ({query}) => 
 <MyContext.Consumer>
 {
-  ({updateShop,shop,msg,setIsAuth})=>(
+  ({updateShop,shop,msg,Logout})=>(
    <React.Fragment>
-      <User setIsAuth={setIsAuth}/>
+      <User Logout={Logout}/>
       <BarLinks/>
       <EventBox msg ={msg}/>
       <Select query = {query} updateShop={updateShop} shop={shop}/>

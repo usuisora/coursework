@@ -1,18 +1,20 @@
 import React,{createContext,useState} from 'react'
-import {getCookie,deleteCookie} from './cookies'
+import {getCookie} from './cookies'
 export const MyContext =createContext();
 
  export function MyProvider (props){
-     const [shop, setShop] = useState((getCookie('shop')===undefined) ? 1 : parseInt(getCookie('shop')) );
-     const updateShop = (value)=>{
-         if(check.length<1){
-         document.cookie = 'shop='+value;
-         setShop(parseInt(value))
-         }else
-         {
-             setMsg('Can\'t switch shop while check isn\'t empty  ')
-         }
-     }
+    //  const [shop, setShop] = useState((getCookie('shop')===undefined) ? 1 : parseInt(getCookie('shop')) );
+     const [shop, setShop] = useState(0);
+
+    //  const updateShop = (value)=>{
+    //      if(check.length<1){
+    //      document.cookie = 'shop='+value;
+    //      setShop(parseInt(value))
+    //      }else
+    //      {
+    //          setMsg('Can\'t switch shop while check isn\'t empty  ')
+    //      }
+    //  }
     //  deleteCookie('shop')
 
      const [productInfo, setProductInfo] = useState({});
@@ -21,10 +23,10 @@ export const MyContext =createContext();
      const [check, setCheck] = useState([]);
 
      //auth
-     const [isAuth, setIsAuth] = useState((getCookie('isAuth')===undefined) ? false : parseInt(getCookie('isAuth')));
+     const [isAuth, setIsAuth] = useState((getCookie('isAuth')==undefined) ? false : getCookie('isAuth'));
      const [userId, setUserId] = useState((getCookie('userId')===undefined) ? -1 : parseInt(getCookie('userId')) );
-     const [role, setRole] = useState((getCookie('role')===undefined) ? '' : parseInt(getCookie('role')));
-     
+     const [role, setRole] = useState((getCookie('role')===undefined) ? '' : (getCookie('role')));
+     console.log('getCookie',getCookie('isAuth'))
      const Login = (id,who) =>{
         document.cookie = 'role='+who;
         document.cookie = 'userId='+id;
@@ -32,8 +34,14 @@ export const MyContext =createContext();
           setRole(who)
           setUserId(id)
           setIsAuth(true);
+          
      }
      
+     const Logout = () =>{
+        setIsAuth(false);
+        document.cookie = 'isAuth='+false;
+
+     }
     //  const createPrice  = (p) => {return (p + (p*0.1)).toPrecision(2)}
 
 
@@ -67,14 +75,15 @@ export const MyContext =createContext();
      }
 
     return(
-        <MyContext.Provider value = {{shop,updateShop,
+        <MyContext.Provider value = {{shop,setShop,
                                       setProductInfo,productInfo,
                                       setMsg, msg,
                                       check,setCheck,
                                       updateCheck,
                                       DeleteFromCheck,
                                       isAuth,setIsAuth,
-                                      Login}}>
+                                      Logout,
+                                      Login,role, userId}}>
             {props.children}
         </MyContext.Provider>
     )

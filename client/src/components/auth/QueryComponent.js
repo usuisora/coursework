@@ -4,7 +4,9 @@ import {Query} from 'react-apollo'
 
 
 const CheckQueryCompomponent = ({Squery,Mquery,login,password,setAuthId,who}) => {
+
     const query = (who==='seller')? Squery: Mquery;
+    
     return(
          <Query
             query={query}

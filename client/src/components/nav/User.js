@@ -2,27 +2,40 @@
 import React,{useState} from 'react'
 import back from '../../images/user.jpg'
 import { Link } from "react-router-dom";
-
-
-const handleExit =(setIsAuth,history)=>{
-
+import {Query,graphql} from 'react-apollo'
+import {MyContext} from '../../Provider'
+import {SellerByIdQuery} from '../../queries'
+const handleExit =(Logout,history)=>{
   const res = confirm("Press OK to log out?")
   console.log(res)
   if (res) {
-    setIsAuth(false)
+    Logout(false)
   } 
 }
-function User({history,setIsAuth}) {
-const [to, setTo] = useState('/');
+function UserContent({history,Logout,user,role}) {
  
   return (
-  
     <div className="card z-depth-1 center yellow lighten-4">
-      <button class="waves-effect waves-teal btn-flat"  onClick={()=>handleExit(setIsAuth,history)}><i class="material-icons">account_circle</i> </button>
-      <div>Seller Ivan Conf</div>
-      <div>Shop 3</div>toString
+      <button class="waves-effect waves-teal btn-flat"  onClick={()=>handleExit(Logout,history)}><i class="material-icons">account_circle</i> </button>
+      <div style ={{ textTransform: 'capitalize'}}>{role} {user.name} {user.lastName}</div>
+      <div>Shop {user.shopId}</div>
     </div>
   )
 }
 
-export default User
+const User = ({history,Logout}) => <MyContext.Consumer>
+  {({role, userId,setShop}) => 
+    <Query query={SellerByIdQuery} variables = {{userId}}>
+    {({ loading, error, data:{sellerById} }) => {
+      if (loading) return "Loading...";
+      if (error) return `Error! ${error.message}`;
+         setShop(sellerById.shopId)
+      return (
+        <UserContent Logout ={Logout} user={sellerById} role = {role}/>
+      )
+    }}
+  </Query>
+  }
+</MyContext.Consumer>
+
+export default  graphql(SellerByIdQuery)(User)

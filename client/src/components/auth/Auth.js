@@ -1,24 +1,24 @@
 import React,{useState} from 'react'
 import {MyContext} from '../../Provider'
-import {graphql, compose,Query} from 'react-apollo'
+import {graphql, compose} from 'react-apollo'
 import { checkSellerQuery, checkManagerQuery} from './authQueries'
 import QueryComponent from './QueryComponent'
 import 'dotenv'
 import axios from 'axios'
-const handleAuth = (e,who,authId,Login,history) =>{
-     e.preventDefault();
-     console.log('from handle',authId);
-     //change server link
-     const user = {
-       login:'seller',
-       password:'1111',
-       port:'3232'
-     }
+const handleAuth = (e,who,authId,Login,history,login,password) =>{
+      const user = {
+        login:login,
+        password:password,
+      }
+     
      axios.post('/auth', user).then(res=>{
        console.log(res.data)
      })
      //change data on front local store
      authId > 0 ? Login( authId,who) : alert('incorrect')
+     
+     history.push('/products')
+
 }
 function Auth({history}) {
   const [login, setLogin] = useState('');
@@ -43,12 +43,14 @@ function Auth({history}) {
               <select className= 'browser-default '  value={who} onChange={({target:{value}})=>{setWho(value)}}>
                 <option value="seller">Seller</option>
                 <option value="manager">Manager</option>
+                <option value="admin">Admin</option>
+
               </select>
 
-              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,Login,history)}}>
+              <button className = 'btn btn-flat center' onClick = {(e)=>{handleAuth(e,who,authId,Login,history,login,password)}}>
                                 Sumbit</button>
           </form>
-
+           
           <QueryComponent Squery={checkSellerQuery} Mquery= {checkManagerQuery} who={who}
                setAuthId={setAuthId}  login={login} password={password}/>
     </div>}
