@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const ListColumns = () =>
+const ListColumns = (prodCounts,prodIds) =>
 <li className ='title'>
             <span>count</span>
             <span>model</span>

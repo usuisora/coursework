@@ -8,7 +8,7 @@ const InfoConsumer = () =>
     ({productInfo}) =>
        <React.Fragment>
           <SupInfoList productInfo ={productInfo} />
-          <OrderComponent/>
+          <OrderComponent productInfo ={productInfo} />
        </React.Fragment>
   }
 </MyContext.Consumer>
