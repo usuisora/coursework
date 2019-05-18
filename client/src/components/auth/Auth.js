@@ -12,7 +12,6 @@ const handleAuth = (e,who,authId,Login,history,login,password) =>{
       }
      
      axios.post('/auth', user).then(res=>{
-       console.log(res.data)
      })
      //change data on front local store
      authId > 0 ? Login( authId,who) : alert('incorrect')

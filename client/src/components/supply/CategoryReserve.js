@@ -10,7 +10,6 @@ const CategoryReserve = ({category}) =>
 <Query  query={getWirehouseByCategory}  variables = {{category}} >
     {
         ({loading,error,data})=>{
-            console.log(data)
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             return (

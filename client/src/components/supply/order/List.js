@@ -2,13 +2,17 @@ import React from 'react'
 
 
 
-const ListColumns = (prodCounts,prodIds) =>
-<li className ='title'>
-            <span>count</span>
-            <span>model</span>
-         </li>
-function List() {
+
+function List({orderItems,setOrderItems}) {
+
+  const Rows = orderItems.map(({id,model,count}) =>  <tr key = {id}>
+                              <td>{model}</td>
+                              <td>{count}</td>
+</tr>)
+
   return (
+    <React.Fragment>
+
     <table>
         <thead>
           <tr>
@@ -18,13 +22,11 @@ function List() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-          </tr>
-        
+         {Rows}
         </tbody>
       </table>
+    </React.Fragment>
+  
   )
 }
 

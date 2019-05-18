@@ -1,17 +1,30 @@
 import React from 'react'
 
-function OrderForm({productInfo,rowCount,setRowCount,ProdCounts,setProdCounts,ProdIds, setProdIds}) {
+function OrderForm({productInfo,rowCount,setRowCount,setOrderItems,orderItems}) {
     const {model,prodId,avalCount}= productInfo
     const handleSubmit = (e) =>{
       e.preventDefault()
-      if(rowCount !== 0){
-        let arrCounts = [...ProdCounts,rowCount]
-        setProdCounts(arrCounts);
-
-        let arrIds = [...ProdIds,prodId]
-        setProdIds(arrIds);
+      let newItem = {
+        id: prodId,
+        model:model,
+        count:parseInt(rowCount)
       }
-      console.log('submit',prodId,rowCount)
+      if(rowCount > 0){
+        let doubl = orderItems.find(el => el.id === prodId)
+        if  ( doubl == undefined ) {
+          let arr = (orderItems.length === 0) ? [newItem]:[...orderItems,newItem]
+          setOrderItems(arr)
+        }
+        else{
+          doubl.count += rowCount
+          let arr = orderItems.filter(el => el.id !== prodId);
+          setOrderItems([...arr, doubl])
+
+        }
+        
+
+      }
+
     }
     const handleChange = (value) =>{
       const res = parseInt(value)
@@ -24,8 +37,8 @@ function OrderForm({productInfo,rowCount,setRowCount,ProdCounts,setProdCounts,Pr
     }
  
   return (
-    <div  className='card yellow lighten-4' >
-    <form className='card-content z-depth-0' >
+    <div  className='card yellow lighten-4 z-depth-0' >
+    <form className='card-content ' >
         <p className ='red-text text-darken-2'>model: {model}</p>
         <label className ='yellow lighten-4 right grey-text'>available  {avalCount} psc</label>
         <input type = 'number' className = 'input-field' placeholder= 'count...' value ={rowCount} onChange={({target:{value}})=>handleChange(value)}/>

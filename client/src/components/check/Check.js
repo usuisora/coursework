@@ -45,7 +45,7 @@ const CheckItemList = ({check,DeleteFromCheck}) =>{
 const CheckBody = ({check,DeleteFromCheck}) =>
     <div className="checkContent">
           <CheckItemList check={check} DeleteFromCheck={DeleteFromCheck}/> 
-          <Sale/>
+          <Sale  check={check}/>
     </div> 
 
 const Check = () => 

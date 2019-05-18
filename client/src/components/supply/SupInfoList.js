@@ -3,15 +3,12 @@ import {getProductInfo} from '../../queries'
 import {Query} from 'react-apollo'
 
 
-const Description = ({id}) =>{
-  console.log(id)
-  return (
+const Description = ({id}) =>
     
 <Query query={getProductInfo} variables ={{id }}>
   {
     ({data:{productById},loading,error}) => {
       if (loading||error) return <p>loading...</p>;
-      console.log(productById)
       return (<React.Fragment>
         <li>mark: {productById.billitemsByProductid.nodes[0].billByBillid.producerByProducerid.mark}</li>
         <li> {productById.description}</li>
@@ -19,8 +16,8 @@ const Description = ({id}) =>{
         </React.Fragment>)
     }}
 </Query>
-  )
-}
+
+
 const SupInfoList = ({productInfo})=>
 { return (productInfo.prodId === undefined) ? (<p></p>):(
 <div >

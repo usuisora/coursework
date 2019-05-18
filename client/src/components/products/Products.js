@@ -9,7 +9,6 @@ const show = (query,shop)=>{
     return (<p>Loading...</p>)
   } 
   else if(query.error){
-    console.log(query.error);
     query.refetch({query:query,variables:{shop:shop}})
   }
   else{

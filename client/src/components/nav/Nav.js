@@ -8,16 +8,16 @@ import EventBox from '../EventBox'
 import User from './User'
 
 
-const Select = ({query,shop,updateShop}) =>
-<div className="selectCon">
-      <h5>Shop :</h5>
-        <select  className= 'browser-default ' name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{updateShop(parseInt(value))}} >
-            { query.allShops.edges.map(({node})=>{
-                return <option  key = {node.id} value= {node.id}>{node.id}</option>
-              })
-            }
-      </select>
-   </div>
+// const Select = ({query,shop,updateShop}) =>
+// <div className="selectCon">
+//       <h5>Shop :</h5>
+//         <select  className= 'browser-default ' name="shop" id="selectshop"  value={shop} onChange={({target:{value}})=>{updateShop(parseInt(value))}} >
+//             { query.allShops.edges.map(({node})=>{
+//                 return <option  key = {node.id} value= {node.id}>{node.id}</option>
+//               })
+//             }
+//       </select>
+//    </div>
 
 const OnQueryExistFragment = ({query}) => 
 <MyContext.Consumer>
@@ -27,7 +27,6 @@ const OnQueryExistFragment = ({query}) =>
       <User Logout={Logout}/>
       <BarLinks/>
       <EventBox msg ={msg}/>
-      <Select query = {query} updateShop={updateShop} shop={shop}/>
    </React.Fragment>
   )
 }

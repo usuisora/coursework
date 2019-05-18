@@ -26,7 +26,6 @@ export const MyContext =createContext();
      const [isAuth, setIsAuth] = useState((getCookie('isAuth')==undefined) ? false : getCookie('isAuth'));
      const [userId, setUserId] = useState((getCookie('userId')===undefined) ? -1 : parseInt(getCookie('userId')) );
      const [role, setRole] = useState((getCookie('role')===undefined) ? '' : (getCookie('role')));
-     console.log('getCookie',getCookie('isAuth'))
      const Login = (id,who) =>{
         document.cookie = 'role='+who;
         document.cookie = 'userId='+id;

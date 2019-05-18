@@ -1,7 +1,7 @@
 import React from 'react'
 import CategoryReserve from './CategoryReserve'
 
-const category = ['fridge','washer','stove']
+const category = ['fridge','stove','washer']
 
 const Reserve = () =>{
   return category.map(cat =><CategoryReserve key = {cat} category = {cat}/> )
