@@ -18,6 +18,7 @@ const Check = () =>
     ({check,setCheck,DeleteFromCheck})=>
     <div  className='check' >
       <h4>Check</h4>
+      <button>clear</button>
         <CheckBody check={check} DeleteFromCheck={DeleteFromCheck}/>
     </div>
   }

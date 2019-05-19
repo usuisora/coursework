@@ -7,7 +7,7 @@ const scols = ['category','mark','model','color'];
 
 const listHead = 
 <li className = 'head'>
-                    { scols.map(col=>  <span>{col}</span>)}
+                    { scols.map(col=>  <span key={col}>{col}</span>)}
                       <span className='subsum'>price (uah)</span>
                       <button style = {{ opacity: 0}}></button>
                     </li>

@@ -8,14 +8,14 @@ function SupplyButton({arrIDs,arrCounts}) {
   return (
     <MyContext.Consumer>
         {
-            ({shop,setMsg})=>
+            ({shop,updateMsg})=>
                 <Mutation mutation = {ADD_SUPPLY}>
                         {
-                        (addSupply, {data,error}) =>{
+                        (addSupply, {data,error,refetch}) =>{
                             
                             return( <button type='submit' className = 'btn-small  btn-flat ' onClick = {()=>{
                                         console.log('arrs',arrIDs,arrCounts,shop)
-                                       setMsg(`New dilivery on shop${shop}`)
+                                       updateMsg(`New dilivery on shop${shop}`)
                                 addSupply({variables:{shopId: parseInt(shop),products:arrIDs,prcount:arrCounts}})
                             }}>Order</button>)
 

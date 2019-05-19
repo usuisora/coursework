@@ -1,17 +1,14 @@
 import React from 'react'
-
-
-function EventBox({msg}) {
-  if(msg == null || msg === undefined){
-   return <div className='eventbox'>
-   <h5>Events will be display here</h5>
- </div>
-   }
-  return (
-    <div className='card yellow lighten-3 z-depth-1'>
-      <h6>{msg}</h6>
-    </div>
-  )
-}
+import {MyContext} from  '../Provider'
+const EventBox=() =>
+  <MyContext.Consumer>
+    { ({msg,eventColor})=>
+         { const className = `card ${eventColor} lighten-3 z-depth-1`;
+             return  <div className = {className}>
+             <h6>{msg}</h6>
+             </div>}
+            
+    }
+  </MyContext.Consumer>
 
 export default EventBox

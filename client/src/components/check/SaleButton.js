@@ -16,7 +16,7 @@ function SaleButton({mutation,check,}) {
   return (
     <MyContext.Consumer>
         {
-            ({userId,seller,setMsg,setCheck})=>
+            ({userId,seller,updateMsg,setCheck})=>
                 <Mutation mutation = {ADD_SALE}>
                         {
                         (mutate, {data}) =>{
@@ -25,7 +25,7 @@ function SaleButton({mutation,check,}) {
                             return( <button type='submit' className = 'btn btn-small black-text yellow  ' onClick = {()=>{
                                         console.log('arrs',arrIDs,arrCounts,userId)
                                         console.log('sale data',data)
-                                       setMsg(`Sold in shop {shop} `)
+                                       updateMsg(`Sold in shop {shop} `)
                                 mutate({variables:{seller: parseInt(userId),products:arrIDs,prcount:arrCounts}}).then(({data})=>{
                                     console.log('salefata',data.sale.results)
 

@@ -5,9 +5,9 @@ import {Query} from 'react-apollo'
 
 const Description = ({id}) =>
     
-<Query query={getProductInfo} variables ={{id }}>
+<Query query={getProductInfo} variables ={{id }} pollInterval={500} >
   {
-    ({data:{productById},loading,error}) => {
+    ({data:{productById},loading,error,startPolling, stopPolling}) => {
       if (loading||error) return <p>loading...</p>;
       return (<React.Fragment>
         <li>mark: {productById.billitemsByProductid.nodes[0].billByBillid.producerByProducerid.mark}</li>

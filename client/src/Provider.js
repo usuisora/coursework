@@ -1,6 +1,7 @@
 import React,{createContext,useState} from 'react'
 import {getCookie} from './cookies'
-export const MyContext =createContext();
+import {getRandColor} from './library'
+ export const MyContext =createContext();
 
  export function MyProvider (props){
     //  const [shop, setShop] = useState((getCookie('shop')===undefined) ? 1 : parseInt(getCookie('shop')) );
@@ -19,6 +20,13 @@ export const MyContext =createContext();
 
      const [productInfo, setProductInfo] = useState({});
       const [msg, setMsg] = useState('Here will be last event');
+      const [eventColor, setEventColor] = useState('red');
+      
+      const updateMsg = (msg)=> {
+          let c = getRandColor()
+        setEventColor(c)
+        setMsg(msg)
+      }
       
      const [check, setCheck] = useState([]);
 
@@ -74,9 +82,9 @@ export const MyContext =createContext();
      }
 
     return(
-        <MyContext.Provider value = {{shop,setShop,
+        <MyContext.Provider value = {{shop,setShop,eventColor,
                                       setProductInfo,productInfo,
-                                      setMsg, msg,
+                                      updateMsg, msg,
                                       check,setCheck,
                                       updateCheck,
                                       DeleteFromCheck,

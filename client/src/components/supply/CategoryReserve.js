@@ -7,9 +7,9 @@ import ProductList from './ProductList'
 
 
 const CategoryReserve = ({category}) => 
-<Query  query={getWirehouseByCategory}  variables = {{category}} >
+<Query  query={getWirehouseByCategory}  variables = {{category}}  pollInterval={500} >
     {
-        ({loading,error,data})=>{
+        ({loading,error,data,startPolling, stopPolling} )=>{
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             return (
