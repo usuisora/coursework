@@ -13,7 +13,7 @@ function ProductItem({node}) {
       <MyContext.Consumer>
         {  ({setProductInfo})=>(
             <Fragment> 
-                <li onClick = {(e)=>{setProductInfo(node); handleClick(e)}}>{node.model}</li>
+                <li onClick = {(e)=>{setProductInfo(node); handleClick(e); }}>{node.model}</li>
             </Fragment>
         )}
       </MyContext.Consumer>

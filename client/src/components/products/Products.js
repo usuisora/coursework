@@ -3,7 +3,7 @@ import {graphql, compose} from 'react-apollo'
 import {displayStoves,displayFridges,displayWashers} from '../../queries'
 import ProductItem from './ProductItem'
 const show = (query,shop)=>{
-
+ 
   
   if(query.loading){
     return (<p>Loading...</p>)
@@ -16,7 +16,7 @@ const show = (query,shop)=>{
       <ul>
 
         { query.allProductsviews.edges.map(({node},index)=>{
-             return (<ProductItem  key = {index} node = {node}/>)
+             return (<ProductItem  key = {index} node = {node}  />)
           })
         }
       </ul>

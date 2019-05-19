@@ -1,10 +1,7 @@
 import React from 'react'
 import {MyContext} from '../../Provider'
-import {getDescription} from '../../queries'
-import {graphql,Query} from 'react-apollo'
 import Actions from './Actions'
 import InfoList from './ProdInfoList'
-
 
 
 

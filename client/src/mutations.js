@@ -7,3 +7,22 @@ export const ADD_SUPPLY = gql`
   }
 }
 `;
+
+export const ADD_SALE = gql`
+  
+mutation  AddSale($seller: Int!, $products:[Int!], $prcount:[Int!]){
+  sale(input:{sellerid:$seller,products:$products,prcount:$prcount}) {
+results {
+  checkId
+  productId
+  model
+  category
+  color
+  count
+  seller
+  price
+  date
+}  }
+}
+`;
+
