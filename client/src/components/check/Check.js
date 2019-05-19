@@ -3,7 +3,7 @@ import { MyContext } from '../../Provider'
 import SaleButton from './SaleButton'
 import { Link } from "react-router-dom";
 import CheckList from './CheckList'
-
+import CheckActions from './CheckActions'
 
 const CheckBody = ({check,DeleteFromCheck}) =>
     <div className="checkContent">
@@ -18,8 +18,8 @@ const Check = () =>
     ({check,setCheck,DeleteFromCheck})=>
     <div  className='check' >
       <h4>Check</h4>
-      <button>clear</button>
-        <CheckBody check={check} DeleteFromCheck={DeleteFromCheck}/>
+      <CheckActions setCheck ={setCheck}/>
+      <CheckBody check={check} DeleteFromCheck={DeleteFromCheck}/>
     </div>
   }
 </MyContext.Consumer>

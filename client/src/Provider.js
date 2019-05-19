@@ -21,6 +21,7 @@ import {getRandColor} from './library'
      const [productInfo, setProductInfo] = useState({});
       const [msg, setMsg] = useState('Here will be last event');
       const [eventColor, setEventColor] = useState('red');
+      const [lastCheck, setLastCheck] = useState([]);
       
       const updateMsg = (msg)=> {
           let c = getRandColor()
@@ -53,11 +54,12 @@ import {getRandColor} from './library'
 
 
      const updateCheck = (count, prod) =>{
+        setProductInfo({})
         const  rep =  check.filter(el => {return(el.id == prod.prodId)});
        if(rep.length<1){
             const newPos= {
                 id:prod.prodId,
-                count:count,
+                count:parseInt(count),
                 price:prod.price,
                 model:prod.model,
                 mark:prod.mark,
@@ -68,7 +70,7 @@ import {getRandColor} from './library'
             setCheck(newCheck)
        }else{
             const newCheck = [...check];
-            newCheck.find(el=>el.id == prod.prodId).count+=count;
+            newCheck.find(el=>el.id == prod.prodId).count+=parseInt(count);
             setCheck(newCheck)
        }
          
@@ -89,7 +91,7 @@ import {getRandColor} from './library'
                                       updateCheck,
                                       DeleteFromCheck,
                                       isAuth,setIsAuth,
-                                      Logout,
+                                      Logout,lastCheck, setLastCheck,
                                       Login,role, userId}}>
             {props.children}
         </MyContext.Provider>

@@ -25,7 +25,7 @@ const ProdInfoList = ({productInfo})=>
   <li>color: <span>{productInfo.color }</span></li>
   <li>price: <span>{ productInfo.price }</span></li>
 </ul>
-<Description id ={productInfo.prodId} />
+<Description id ={productInfo.prodId}  />
   
 </div>
 )

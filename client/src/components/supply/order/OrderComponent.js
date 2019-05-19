@@ -1,7 +1,7 @@
 import React ,  {useState} from 'react'
 import OrderForm from './OrderForm'
 import List from './List'
-import DelButton from './DelButton'
+import DelButton from '../../DelButton'
 import SupplyButton from './SupplyButton'
 
 const ReduceFromArrOfObj = (arr,prop) =>{
@@ -31,7 +31,7 @@ const ReduceFromArrOfObj = (arr,prop) =>{
 
         <List orderItems={orderItems} />
           <SupplyButton arrIDs ={arrIDs} arrCounts={arrCounts}/>
-          <DelButton setOrderItems={setOrderItems}/>
+          <DelButton forDelete={setOrderItems}/>
       </div>
     </div>
   )

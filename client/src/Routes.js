@@ -11,7 +11,7 @@ import Auth from './components/auth/Auth'
 import PrInfo from './components/products/Info';
 import SupInfo from './components/supply/SupInfo.js'
 import HistInfo from './components/history/HistInfo'
-import CheckInfo from './components/check/CheckInfo'
+import CheckInfo from './components/check/checkinfo/CheckInfo'
 
 
 const DynRoutes = ({updateShop, shop}) =>
