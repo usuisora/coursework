@@ -2,14 +2,13 @@ import React, { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 import { MyContext } from '../../../Provider'
 import PrintCheck from './PrintCheck'
-import PrintButton from './PrintButton'
-
+import DeleteCheck from './DeleteCheck'
 const CheckInfo = () => {
   const componentRef = useRef();
   return (
    <div className='info'>
     <MyContext.Consumer>
-        { ({lastCheck,userId}) => 
+        { ({lastCheck,setLastCheck,userId}) => 
 
           (lastCheck.length<1) ? <h6 className ='grey-text '>Session started. Here will be the last check on this session.</h6>:
           <React.Fragment>
@@ -22,6 +21,7 @@ const CheckInfo = () => {
                                </button>}
                 content={() => componentRef.current}
               />
+              <DeleteCheck  setCheck={setLastCheck} check ={lastCheck}/>
           </React.Fragment>
           }
     </MyContext.Consumer>

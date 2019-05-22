@@ -25,4 +25,11 @@ results {
 }  }
 }
 `;
-
+export const DEL_CHECK = gql`
+  
+mutation DelCheck($checkId: Int!){
+  deleteBuycheckById(input:{id:$checkId}) {
+    clientMutationId
+    deletedBuycheckId
+  }
+}`
