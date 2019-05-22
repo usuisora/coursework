@@ -17,7 +17,9 @@ const CheckInfo = () => {
                 <p className ='grey-text'>Client should get his check.</p>
               <PrintCheck ref={componentRef} check={lastCheck} userId = {userId}/>
               <ReactToPrint
-                trigger={() => <button>Print this out!</button>}
+                trigger={() => <button className = 'btn  btn-flat grey-text  text-darken-3 right '>
+                                <i className="material-icons">print</i>
+                               </button>}
                 content={() => componentRef.current}
               />
           </React.Fragment>
