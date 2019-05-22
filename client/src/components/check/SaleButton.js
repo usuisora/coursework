@@ -12,7 +12,6 @@ const ReduceFromArrOfObj = (arr,prop) =>{
 function SaleButton({mutation,check,}) {
     let arrIDs  = ReduceFromArrOfObj(check,'id');
     let arrCounts  = ReduceFromArrOfObj(check,'count');
-    let checkPrint = []
   return (
     <MyContext.Consumer>
         {

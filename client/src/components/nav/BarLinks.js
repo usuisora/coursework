@@ -13,6 +13,8 @@ const BarLinks=()=>{
 <Link className='link' to="/history">History</Link>
 <Link className='link' style = {{color: '#a3a'}} to="/supply">Supply</Link>
 <Link className='link' style = {{color: '#33a'}} to="/manage">Manage</Link>
+<Link className='link' style = {{color: '#33a'}} to="/printcheck">Print Check</Link>
+
 </div>   
  )
  

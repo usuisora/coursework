@@ -12,16 +12,16 @@ import PrInfo from './components/products/Info';
 import SupInfo from './components/supply/SupInfo.js'
 import HistInfo from './components/history/HistInfo'
 import CheckInfo from './components/check/checkinfo/CheckInfo'
+import PrintCheck from './components/check/checkinfo/PrintCheck';
 
 
-const DynRoutes = ({updateShop, shop}) =>
+const DynRoutes = ({ shop, lastCheck , userId}) =>
 <Switch>
     <Route path="/products" exact render={(props) => <Products {...props} shop={shop} />} />
     <Route path="/check" exact component={Check} />
     <Route path="/supply" exact component={Supply} />
     <Route path="/history" exact component={History} />
     <Route path="/manage" exact component={Admin} />
-
 </Switch>
 
 const InfoRoutes = () =>
@@ -33,12 +33,12 @@ const InfoRoutes = () =>
 
 </Switch>
 
-const Routes =({updateShop, shop, isAuth})=>{ 
+const Routes =({ shop, isAuth,lastCheck,userId})=>{ 
     console.log('auth from routes',typeof(isAuth))
     const res =  (isAuth === 'true') ?
                         <React.Fragment>
                               <Nav />
-                              <DynRoutes shop={shop} updateShop={updateShop}/>
+                              <DynRoutes shop={shop} lastCheck={lastCheck} userId={userId} />
                               <InfoRoutes/>
                           </React.Fragment>
                :           

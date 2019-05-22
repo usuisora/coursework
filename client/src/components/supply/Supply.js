@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryReserve from './CategoryReserve'
-
+import ProducerSupply from './producer/ProducerSupply'
 const category = ['fridge','stove','washer']
 
 const Reserve = () =>{
@@ -10,9 +10,10 @@ const Reserve = () =>{
 function Supply() {
   return (
     <div className = 'supply'>
-      <h4>Wirehouse</h4>
+      <h5>Wirehouse</h5>
       <p>Here is all available products for supply.Manager is the one who able to create order for his shop. </p>
       <Reserve/>
+      <ProducerSupply/>
     </div>
   )
 }

@@ -90,6 +90,10 @@
   margin: 10px;
   order: 2;
 }
+.check .printCheck {
+  font-family: 'Lucida Console';
+  font-size: 60%;
+}
 @media (max-width: 500px) {
   .check {
     order: 1;

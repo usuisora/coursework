@@ -23,7 +23,7 @@ const ProdInfoList = ({productInfo})=>
   <li>model: <span>{productInfo.model }</span></li>
   <li>mark : <span>{productInfo.mark }</span></li>
   <li>color: <span>{productInfo.color }</span></li>
-  <li>price: <span>{ productInfo.price }</span></li>
+  <li> factory price: <span>{ productInfo.price }</span> <p className = 'grey-text'>Purchase prices is 11%  greater then the factory ones.</p></li>
 </ul>
 <Description id ={productInfo.prodId}  />
   

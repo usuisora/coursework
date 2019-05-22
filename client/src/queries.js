@@ -7,6 +7,7 @@ query getProductById ($shop: Int!, $prodId:Int!)
   edges {
     node {
       category
+          producerId
           mark
           model
           prodId
@@ -40,7 +41,7 @@ export const  displayProductsQuery =  gql`{
 `
 export const  displayWashers =  gql`
 query displayWashers($shop: Int!){
-  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:WASHER}}){
+  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:WASHER},avalCount:{greaterThan: "0"}}){
       edges {
         node {
           category
@@ -59,7 +60,7 @@ query displayWashers($shop: Int!){
 `
 
 export const  displayFridges =  gql`query displayFridges($shop: Int!){
-  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:FRIDGE}}){
+  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:FRIDGE},avalCount:{greaterThan: "0"}}){
       edges {
         node {
           category
@@ -77,7 +78,7 @@ export const  displayFridges =  gql`query displayFridges($shop: Int!){
 `
 
 export const  displayStoves =  gql`query displayStoves($shop: Int!){
-  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:STOVE}}){
+  allProductsviews (filter:{shopId:{equalTo:$shop},category:{equalTo:STOVE},avalCount:{greaterThan: "0"}}){
       edges {
         node {
           category
@@ -128,6 +129,7 @@ query  getProductInfo($id:Int!)
         {
           producerByProducerid{
             mark
+            id
           }
 				}
       }
