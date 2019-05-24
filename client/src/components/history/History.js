@@ -1,30 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
+import SearchResult from './SearchResult'
+import SearchCheck from './SearchCheck'
 
-const HistoryList = () => 
-<table className='card'>
-    <thead>
-       <tr>
-       <td>id</td>
-        <td>seller</td>
-        <td>date</td>
-       </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>123</td>
-        <td>Loh</td>
-        <td>23.23.12</td>
-    </tr>
-    </tbody>
-</table>
+
+
+
 function History() {
+  const [id,setId] = useState(0)
   return (
     <div className ='history'>
       <h4>History</h4>
       <blockquote>
         archive of purhuase
       </blockquote>
-      <HistoryList/>
+     <SearchCheck id = {id}  setId = {setId}/>
+     <SearchResult id = {id} />
+
     </div>
   )
 }

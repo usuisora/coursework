@@ -165,3 +165,50 @@ query  ($category:String!)
     }
   }
 }`
+
+export const getDeliveryListQuery =gql`
+{
+  getdeliverylist {
+    edges {
+      node {
+        productId
+        producerId
+        prodCount
+      }
+    }
+  }
+}
+`
+
+export const getCheckById = gql`
+query  ($id:Int!)
+{
+  buycheckById(id:$id) {
+    id
+  }
+}`
+
+export const getCheckView = gql`
+query  ($checkid:Int!)
+{
+  allCheckviews(filter:{checkviewid :{equalTo:$checkid}}) {
+    edges {
+      node {
+        checkviewid
+        productid
+        model
+        category
+        color
+        count
+        sellerId
+        sellerName
+        sellerLastname
+        pricetax
+        checkdate
+      }
+    }
+  }
+  
+}
+
+`

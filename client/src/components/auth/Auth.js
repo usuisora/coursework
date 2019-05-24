@@ -10,15 +10,15 @@ const handleAuth = (e,who,authId,Login,history,login,password) =>{
         login:login,
         password:password,
       }
-     
-     axios.post('/auth', user).then(res=>{
-     })
+          axios.post('/auth', user).then(res=>{
+            console.log(res)
+          })
      //change data on front local store
      authId > 0 ? Login( authId,who) : alert('incorrect')
-     
      history.push('/products')
-
 }
+
+
 function Auth({history}) {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');

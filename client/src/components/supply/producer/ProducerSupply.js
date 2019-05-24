@@ -1,15 +1,14 @@
 import React,{useState} from 'react'
-
+import ProducersSupplyList from './ProducersSupplyList'
 const ProducerSupply=()=> {
     const [list, setList] = useState([{prodId: 1, producerId: 2,count:3,price:-1}]);
     
   return (
     <div >
-      <h5>Manufactors's supply</h5>
-      <p>
-          List of all resently sold and absenced.
-          Check producers db to get last prices.
-      </p>
+      <br/>
+      <h3>Manufactors's supply</h3>
+       <p className = 'center grey-text'>''Prices will be taken from manufactors.''</p>
+       <ProducersSupplyList/>
     </div>
   )
 }
