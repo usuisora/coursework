@@ -33,9 +33,6 @@ const ProducerSupplyList = () =>
         <h5 className =  'yellow-text text-darken-4'>Wirehouse supply form</h5>
         <p className = 'grey-text' > Most sold are here! Submit to get more! </p>
           <Table/>
-            <div className = 'card-action'>
-                <button className = 'btn grey  btn-flat'>Submit</button>
-            </div>
     </div>
 </div>
 

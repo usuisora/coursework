@@ -193,6 +193,9 @@
   overflow-y: auto;
   height: 100vh;
 }
+.supply .producers button {
+  margin: auto 5px;
+}
 @media (max-width: 500px) {
   .supply {
     order: 3;
@@ -231,6 +234,16 @@ body {
 .check,
 .products {
   flex: 3 ;
+}
+.history {
+  margin: 10px;
+  order: 2;
+  flex: 3 ;
+}
+@media (max-width: 500px) {
+  .history {
+    order: 3;
+  }
 }
 .history,
 .supply,
