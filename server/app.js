@@ -2,7 +2,7 @@ const express = require("express");
 const { postgraphile } = require("postgraphile");
 const bodyParser = require('body-parser');
 const app = express();
-
+const reload = require('reload');
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
@@ -17,6 +17,7 @@ require('dotenv').config()
 app.use(
   postgraphile(process.env.DATABASE_URL, null, {
     appendPlugins: [ConnectionFilterPlugin],
+    watchPg:true,
     graphiql: true,
     enableCors: true
 
@@ -27,8 +28,11 @@ app.get('/auth', (req,res)=>{
     message: 'req'
   })
 })
+
+
+
 app.post('/auth',(req,res)=>{
-  console.log('NMYYYYRESQeST!!!!!!!!!!!',req.body)
+  console.log('MYYYY REQUEST!!!!!!!!!!!',req.body)
   process.env.USER=req.body.login
   process.env.PASS=req.body.password
   process.env.DATABASE_URL=`postgres:${req.body.login}:${req.body.password}@localhost:5432/dblab2`
@@ -37,6 +41,12 @@ app.post('/auth',(req,res)=>{
     message:  process.env.DATABASE_URL
   })
 })
+
+
+
+
+
+
 app.use("/", express.static(__dirname + "/public"));
 app.use(cors())
 // app.use('env',process.env)
@@ -44,7 +54,8 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }));
 app.listen(process.env.PORT ,()=>{
-  console.log('port: ',process.env.PORT)
+  console.log( 'link on outer', process.env.DATABASE_URL)
+
 });
 
 

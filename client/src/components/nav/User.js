@@ -13,10 +13,10 @@ const handleExit =(Logout,history)=>{
 function UserContent({history,Logout,user,role}) {
  
   return (
-    <div className="card z-depth-1 center grey lighten-2">
+    <div className="card z-depth-1 center grey lighten-3 ">
       <button className="waves-effect waves-black btn-flat"  onClick={()=>handleExit(Logout,history)}><i className="material-icons">account_circle</i> </button>
-      <div style ={{ textTransform: 'capitalize'}}>{role} {user.name} {user.lastName}</div>
-      <div>Shop {user.shopId}</div>
+      <div style ={{ textTransform: 'capitalize', }}><div>{role}</div> {user.name} {user.lastName}</div>
+      <div className='z-depth-0'>Shop #{user.shopId}</div>
     </div>
   )
 }

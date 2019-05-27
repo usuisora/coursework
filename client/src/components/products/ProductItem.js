@@ -5,7 +5,6 @@ import {MyContext} from '../../Provider'
 const handleClick = ({target}) =>{
   var list = Array.prototype.slice.call(document.querySelectorAll('li'))
   list.map(el => el.className  = '')
-
   target.className = 'active'
 }
 function ProductItem({node}) {
@@ -13,7 +12,7 @@ function ProductItem({node}) {
       <MyContext.Consumer>
         {  ({setProductInfo})=>(
             <Fragment> 
-                <li onClick = {(e)=>{setProductInfo(node); handleClick(e); }}>{node.model}</li>
+                <li onClick = {(e)=>{setProductInfo(node); handleClick(e); }}>{node.mark} <br/>{node.model}</li>
             </Fragment>
         )}
       </MyContext.Consumer>

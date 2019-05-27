@@ -21,7 +21,7 @@ function SaleButton({mutation,check,}) {
                         (mutate, {data}) =>{
                             
                             console.log('mutate',mutate)
-                            return( <button type='submit' className = 'btn btn-small black-text yellow  ' onClick = {()=>{
+                            return( <button type='submit' className = 'btn  blue ' onClick = {()=>{
                                        updateMsg(`Sold in shop ${shop} `)
                                        mutate({variables:{seller: parseInt(userId),products:arrIDs,prcount:arrCounts}}).then(({data})=>{
                                     console.log('SALEDATA',data.sale.results)
@@ -29,6 +29,7 @@ function SaleButton({mutation,check,}) {
                                     setCheck([])
                                 },error=>{
                                     updateMsg('ERROR! product miscount!')
+                                    console.log(error)
                                 })
                             }}>SALE</button>)
 

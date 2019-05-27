@@ -11,9 +11,8 @@ let col = [
 ]
 const Info = ({edges}) =>
 <div className='historySearch'>
-   <p>Seller {edges[0].node.sellerId}  :{edges[0].node.sellerName}  {edges[0].node.sellerName}</p>
-   <p>Date: {edges[0].node.checkdate}  </p>
-   Items
+   <h4 className ='blue-text'>Seller {edges[0].node.sellerId}  :{edges[0].node.sellerName}  {edges[0].node.sellerLastname}</h4>
+   <h5  className ='left small'>Date: {edges[0].node.checkdate}  </h5>
 
    <table>
      <thead>

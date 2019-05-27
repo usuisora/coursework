@@ -33,3 +33,11 @@ mutation DelCheck($checkId: Int!){
     deletedBuycheckId
   }
 }`
+
+
+export const ADD_TOP_SOLD = gql`
+  mutation{
+   posttopbill(input:{}){
+    integer
+  }}
+`

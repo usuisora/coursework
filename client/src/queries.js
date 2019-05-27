@@ -159,6 +159,7 @@ query  ($category:String!)
       node {
         prodId
         model
+        mark
         price
         avalCount
       }

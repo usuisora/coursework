@@ -24,7 +24,7 @@ const handleSale=(e,updateMsg,prod,count,updateCheck)=>{
             return(
             <form>
               <input type='number' value={newItemCount} placeholder = 'count...' onChange={({target:{value}})=>handleChange(value)}/>
-              <button className='btn btm-small link green ' onClick={(e,productInfo)=>handleSale(e,updateMsg,prod,newItemCount,updateCheck)}>Add To Check</button>
+              <button className='btn btm-small link blue ' onClick={(e,productInfo)=>handleSale(e,updateMsg,prod,newItemCount,updateCheck)}>Add To Check</button>
             </form>
             )}
   // const Remove =() =>

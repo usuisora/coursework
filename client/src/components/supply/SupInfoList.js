@@ -6,7 +6,7 @@ var producerId = 0
 const Description = ({id}) =>
     
 <Query query={getProductInfo} variables ={{id }} pollInterval={500} >
-  {
+  { 
     ({data:{productById},loading,error,startPolling, stopPolling}) => {
 
       if (loading||error) return <p>loading...</p>;
@@ -28,8 +28,6 @@ const SupInfoList = ({productInfo})=>
   <h4>Info</h4>
 <ul>
   <li>id: <span>{productInfo.prodId }</span></li>
-  <li>mark: <span>{ productInfo.mark  } uah</span> <span class='grey-text'>{productInfo.producerId}</span></li>
-  
   <li>model: <span>{productInfo.model }</span></li>
   <li>price: <span>{ productInfo.price } uah</span></li>
   
