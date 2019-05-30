@@ -4,12 +4,15 @@ import {getDeliveryListQuery} from '../../../queries'
 
 const Rows  =  () =>
 <Query query = {getDeliveryListQuery}>
-  {({data:{getdeliverylist},err,loading})=>{
-      console.log('proddeliver',getdeliverylist)
+  {({data,error,loading})=>{
+     if(error) {
+       return <p>No access</p>
+     }else{
+      console.log('proddeliver',data.getdeliverylist)
      let  dls = loading ?
            <tr>Loading...</tr>
            :
-           getdeliverylist.edges.map(({node}) =>
+           data.getdeliverylist.edges.map(({node}) =>
               (<tr key = {node.productId} style ={{height : 20}}>
                  <td>{node.productId}</td>
                  <td>{node.producerId}</td>
@@ -17,6 +20,7 @@ const Rows  =  () =>
               </tr>)
            )
     return dls
+     }
   }}
 </Query>
 

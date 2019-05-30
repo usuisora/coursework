@@ -10,7 +10,7 @@ const  TopSoldSupButton=({updateMsg}) =>
                                        mutate().then(({data})=>{
                                            console.log('successful delivery')
                                 },error=>{
-                                    console.log(error)
+                                    alert('No accessrs')
                                 })
                             }}>Supply Top Sold</button>)
 

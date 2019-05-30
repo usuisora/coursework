@@ -4,19 +4,6 @@ import {getRandColor} from './library'
  export const MyContext =createContext();
 
  export function MyProvider (props){
-    //  const [shop, setShop] = useState((getCookie('shop')===undefined) ? 1 : parseInt(getCookie('shop')) );
-     const [shop, setShop] = useState(0);
-
-    //  const updateShop = (value)=>{
-    //      if(check.length<1){
-    //      document.cookie = 'shop='+value;
-    //      setShop(parseInt(value))
-    //      }else
-    //      {
-    //          setMsg('Can\'t switch shop while check isn\'t empty  ')
-    //      }
-    //  }
-    //  deleteCookie('shop')
 
      const [productInfo, setProductInfo] = useState({});
       const [msg, setMsg] = useState('Here will be last event');
@@ -35,10 +22,15 @@ import {getRandColor} from './library'
      const [isAuth, setIsAuth] = useState((getCookie('isAuth')==undefined) ? false : getCookie('isAuth'));
      const [userId, setUserId] = useState((getCookie('userId')===undefined) ? -1 : parseInt(getCookie('userId')) );
      const [role, setRole] = useState((getCookie('role')===undefined) ? '' : (getCookie('role')));
-     const Login = (id,who) =>{
+     const [shop, setShop] = useState((getCookie('shop')===undefined) ? -1 : parseInt(getCookie('shop')));
+
+     const Login = (id,who,shop) =>{
         document.cookie = 'role='+who;
         document.cookie = 'userId='+id;
         document.cookie = 'isAuth='+true;
+        document.cookie = 'shop='+shop;
+
+          setShop(shop)
           setRole(who)
           setUserId(id)
           setIsAuth(true);
@@ -84,15 +76,16 @@ import {getRandColor} from './library'
      }
 
     return(
-        <MyContext.Provider value = {{shop,setShop,eventColor,
+        <MyContext.Provider value = {{
+                                      Logout,lastCheck, setLastCheck,
+                                      shop,setShop,eventColor,
                                       setProductInfo,productInfo,
                                       updateMsg, msg,
                                       check,setCheck,
                                       updateCheck,
                                       DeleteFromCheck,
                                       isAuth,setIsAuth,
-                                      Logout,lastCheck, setLastCheck,
-                                      Login,role, userId}}>
+                                      Login,role,userId}}>
             {props.children}
         </MyContext.Provider>
     )

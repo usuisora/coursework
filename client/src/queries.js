@@ -19,6 +19,23 @@ query getProductById ($shop: Int!, $prodId:Int!)
   }
 }`
 
+
+export const getProductsInShop =  gql`  
+query getProductsInShop ($shop: Int!)
+{
+  allProductsviews(filter:{shopId:{equalTo:$shop}}) {
+  edges {
+    node {
+          mark
+          prodId
+          model
+          color
+        }
+      }
+  }
+}`
+
+
 export const  displayProductsQuery =  gql`{
   allProductsviews {
   edges {
@@ -151,6 +168,23 @@ sellerById(id:$userId) {
 }
 
 `
+
+
+
+
+export const ManagerByIdQuery =  gql`
+query  ManagerByIdQuery($userId:Int!){
+shopById(id:$userId) {
+  id
+  mngrName
+  mngrLastname
+}
+}
+
+`
+
+
+
 export const  getWirehouseByCategory =  gql`
 query  ($category:String!)
 {

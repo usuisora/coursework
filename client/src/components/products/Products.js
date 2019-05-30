@@ -1,7 +1,8 @@
 import React from 'react'
-import {graphql, compose} from 'react-apollo'
+import {graphql, compose, ApolloConsumer} from 'react-apollo'
 import {displayStoves,displayFridges,displayWashers} from '../../queries'
 import ProductItem from './ProductItem'
+import { MyContext } from '../../Provider';
 const show = (query,shop)=>{
  
   
@@ -25,24 +26,32 @@ const show = (query,shop)=>{
   }
       
 }
-function Products({displayStoves,displayFridges,displayWashers,shop}) {
+function Products({displayStoves,displayFridges,displayWashers}) {
   
   return (
-    <div className = 'products'>
-      <h5>Products</h5>
-      <div className = 'category'>
-          <h4>Fridges</h4>
-           { show(displayFridges,shop)}
-      </div>
-      <div className = 'category'>
-          <h4>Stoves</h4>
-          { show(displayStoves,shop)}
-      </div>
-      <div className = 'category'>
-          <h4>Washers</h4>
-          { show(displayWashers,shop)}
-      </div>
-    </div>
+    <MyContext.Consumer>
+      {
+        ({shop})=>
+           <React.Fragment>
+           <div className = 'products'>
+              <h5>Products</h5>
+              <div className = 'category'>
+                  <h4>Fridges</h4>
+                  { show(displayFridges,shop)}
+              </div>
+              <div className = 'category'>
+                  <h4>Stoves</h4>
+                  { show(displayStoves,shop)}
+              </div>
+              <div className = 'category'>
+                  <h4>Washers</h4>
+                  { show(displayWashers,shop)}
+              </div>
+            </div>
+           </React.Fragment>
+        
+      }
+    </MyContext.Consumer>
   )
 }
 

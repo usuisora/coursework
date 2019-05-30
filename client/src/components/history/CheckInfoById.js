@@ -22,9 +22,9 @@ const Info = ({edges}) =>
      </tr>
      </thead>
      <tbody>
-   {edges.map(({node})=>
-    <tr key = {node.productid}>
-      { col.map(pr => <td key ={node[pr]}>{node[pr]}</td>)}
+   {edges.map(({node},index)=>
+    <tr key = {index}>
+      { col.map(pr => <td key ={pr}>{node[pr]}</td>)}
       <td>{node["pricetax"]}uah</td>
     </tr>
    )}

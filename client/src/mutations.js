@@ -41,3 +41,15 @@ export const ADD_TOP_SOLD = gql`
     integer
   }}
 `
+
+export const LOGIN  = gql`
+
+mutation($login: String!,$password: String!){
+  login(input:{login:$login, pass: $password}) {
+    auth{
+      roleName
+      roleId
+      shopId
+    }
+  }
+}`
