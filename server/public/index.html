@@ -6,24 +6,15 @@
     <title>Enter</title>
 </head>
 <body>
-<form className ='card yellow lighten-4'>
-          <h5>Enter the system</h5>
-              <div>
-                  <label htmlFor="login">Login</label>
-                  <input type="text" />
-              </div>
-              <div>
-                  <label htmlFor="password">Password</label>
-                  <input type="password"/>
-              </div>
-              <select className= 'browser-default '>
-                <option value="seller">Seller</option>
-                <option value="manager">Manager</option>
-              </select>
+        <h5>Enter the system</h5>
 
-              <button className = 'btn btn-flat center' onclick="">
-                                Sumbit</button>
-          </form>
-     
+        <form action="/auth" method="post">
+            <label>Имя</label><br>
+            <input type="text" name="role" /><br><br>
+            <label>Возраст</label><br>
+            <input type="number" name="pass" /><br><br>
+            <button type="submit" >sub</button>
+        </form>
 </body>
 </html>
+<!-- <a href='http://localhost:3000'>submit</a> -->

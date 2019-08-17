@@ -30,7 +30,7 @@ import Table from './Table'
 const ProducerSupplyList = () => 
 <div className = 'card' style = {{width: '50%'}}>
     <div className ='card-content'>
-        <h5 className =  'yellow-text text-darken-4'>Wirehouse supply form</h5>
+        <h5 className =  'yellow-text text-darken-4'>Warehouse supply form</h5>
         <p className = 'grey-text' > Most sold are here! Submit to get more! </p>
           <Table/>
     </div>

@@ -7,7 +7,7 @@ const handleClick = ({target}) =>{
   target.className = 'btn-small btn-flat navlink active '
 }
 
-const BarLinks=({history})=>{
+const BarLinks=({history,setProductInfo})=>{
 let links =  ['products','check','history','supply']
    
  return(
@@ -16,7 +16,7 @@ let links =  ['products','check','history','supply']
         let puth = '/'+el;
 
       return(
-        <button key = {el} className='btn-small btn-flat navlink' onClick={(e)=>handleClick(e)}><Link style = {{width: '100%'}} to={puth}>{el}</Link></button>
+        <button key = {el} className='btn-small btn-flat navlink' onClick={(e)=>{handleClick(e);setProductInfo({})}}><Link style = {{width: '100%'}} to={puth}>{el}</Link></button>
       )
     }
      )}

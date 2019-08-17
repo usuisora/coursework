@@ -30,7 +30,7 @@ const ReduceFromArrOfObj = (arr,prop) =>{
       <blockquote>Tab on product to  fill order.</blockquote>}
 
         <List orderItems={orderItems} />
-          <SupplyButton arrIDs ={arrIDs} arrCounts={arrCounts}/>
+          <SupplyButton arrIDs ={arrIDs} arrCounts={arrCounts}  setOrderItems={setOrderItems}/>
           <DelButton forDelete={setOrderItems}/>
       </div>
     </div>

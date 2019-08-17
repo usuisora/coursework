@@ -1,6 +1,4 @@
-import React,{useState} from 'react'
-import {Query} from 'react-apollo'
-import {getCheckById} from '../../queries'
+import React from 'react'
 
 const SearchCheck = ({id,setId}) =>
 

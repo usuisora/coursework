@@ -4,7 +4,7 @@ import List from './List'
 import {Mutation} from 'react-apollo'
 import {ADD_SUPPLY} from '../../../mutations'
 import {MyContext} from  '../../../Provider'
-function SupplyButton({arrIDs,arrCounts}) {
+function SupplyButton({arrIDs,arrCounts,setOrderItems}) {
   return (
     <MyContext.Consumer>
         {
@@ -17,6 +17,7 @@ function SupplyButton({arrIDs,arrCounts}) {
                                         console.log('arrs',arrIDs,arrCounts,shop)
                                        updateMsg(`New dilivery on shop${shop}`)
                                 addSupply({variables:{shopId: parseInt(shop),products:arrIDs,prcount:arrCounts}})
+                                setTimeout(setOrderItems([]),2000)
                             }}>Order</button>)
 
                         }

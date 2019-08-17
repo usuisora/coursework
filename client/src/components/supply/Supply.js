@@ -10,7 +10,7 @@ const Reserve = () =>{
 function Supply() {
   return (
     <div className = 'supply'>
-      <h5>Wirehouse</h5>
+      <h5>Warehouse</h5>
       <p>Here is all available products for supply.Manager is the one who able to create order for his shop. </p>
       <Reserve/>
       <ProducerSupply/>

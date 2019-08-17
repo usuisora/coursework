@@ -6,7 +6,7 @@ import Products from './components/products/Products'
 import Check from './components/check/Check'
 import Supply from './components/supply/Supply';
 import History from './components/history/History'
-import Auth from './components/auth2/Auth'
+import Auth from './components/auth/Auth'
 import PrInfo from './components/products/Info';
 import SupInfo from './components/supply/SupInfo.js'
 import HistInfo from './components/history/HistInfo'

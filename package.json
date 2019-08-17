@@ -1,0 +1,13 @@
+{
+  "name": "starting",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start "
+  },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "5.6.0"
+  }
+}

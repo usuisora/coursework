@@ -22,10 +22,10 @@ import User from './User'
 const OnQueryExistFragment = ({query}) => 
 <MyContext.Consumer>
 {
-  ({updateShop,shop,msg,Logout})=>(
+  ({updateShop,shop,msg,Logout,setProductInfo})=>(
    <React.Fragment>
       <User Logout={Logout}/>
-      <BarLinks/>
+      <BarLinks setProductInfo={setProductInfo}/>
       <EventBox msg ={msg}/>
    </React.Fragment>
   )

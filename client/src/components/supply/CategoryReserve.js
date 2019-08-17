@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Query} from 'react-apollo'
+import { Query} from 'react-apollo' // import Query component 
 import {getWirehouseByCategory} from '../../queries'
 import ProductList from './ProductList'
 

@@ -2,12 +2,13 @@ import React ,  {useState} from 'react'
 import {Mutation} from 'react-apollo'
 import {ADD_SALE} from '../../mutations'
 import {MyContext} from  '../../Provider'
-const ReduceFromArrOfObj = (arr,prop) =>{
-    let arrIDs  =arr.reduce((prev,next)=>{
-        return  [...prev,next[prop]]
-    },[])
-   return arrIDs
-  }
+import {ReduceFromArrOfObj} from '../../library'
+// const ReduceFromArrOfObj = (arr,prop) =>{
+//     let arrIDs  =arr.reduce((prev,next)=>{
+//         return  [...prev,next[prop]]
+//     },[])
+//    return arrIDs
+//   }
   
 function SaleButton({mutation,check,}) {
     let arrIDs  = ReduceFromArrOfObj(check,'id');
@@ -28,7 +29,7 @@ function SaleButton({mutation,check,}) {
                                        setLastCheck( data.sale.results)
                                     setCheck([])
                                 },error=>{
-                                    updateMsg('ERROR! product miscount!')
+                                    updateMsg('product or role miscount!')
                                     console.log(error)
                                 })
                             }}>SALE</button>)

@@ -30,3 +30,4 @@ export const getTotal  = (check) => check.reduce((sum,nex)=>sum + nex);
   },[])
  return arrIDs
 }
+
